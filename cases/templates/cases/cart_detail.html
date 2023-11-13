@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load farsi_numbers_tags %}
+{% load humanize %}
+
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+    {% for item in cart %}
+        <a href="{{ item.case_obj.get_absolut_url }}">{{ item.case_obj.title }}</a>
+        {{ item.case_obj.price|intcomma:False|farsi_number }}
+        <form action="{% url 'cart_add' item.case_obj.id %}" method="post">
+            {% csrf_token %}
+            <div class="quantity">
+                <input type="number" class="quantity-input" name="number" id="qty-1" value="{{ item.meter }}" min="1">
+                {{ item.case_update_number_form.inplace }}
+{#                <button type="submit">بروزرسانی</button>#}
+            </div>
+        </form>
+        {{ item.total_price|intcomma:False|farsi_number }}
+    {% endfor %}
+
+    <a href="{% url 'order_create' %}">ثبت سفارش</a>
+{% endblock %}
+
+

@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load farsi_numbers_tags %}
+{% load humanize %}
+
+
+{% block title %}{{ case.title }}{% endblock %}
+
+{% block content %}
+    <img src="{{ case.cover.url }}" alt="" width="300" height="300">
+    <h1>{% trans 'title' %}: {{ case.title|farsi_number }}</h1>
+    <p>{{ case.description }}</p>
+    <p>{% trans 'status' %}: {{ case.get_status_display }}</p>
+    <p>{% trans 'maker' %}: {{ case.maker }}</p>
+    <p>{% trans 'position' %}: {{ case.city }} - {{ case.region }}</p>
+    <p>{% trans 'capacity' %}: {{ case.capacity|intcomma:False|farsi_number }}</p>
+    <p>{% trans 'min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>
+    <p>{% trans 'guaranteed gain' %}: {{ case.guaranteed_gain }}</p>
+    <p>{% trans 'guaranteed gain percent' %}: {{ case.guaranteed_gain_percent|farsi_number }}</p>
+    <p>{% trans 'buy assurance' %}: {{ case.buy_assurance }}</p>
+    <p>{% trans 'end of the projct' %}: {{ case.end_time|farsi_number }}</p>
+    <p>{% trans 'total price' %}: یک قیمتی</p>
+
+    <form action="{% url 'cart_add' case.id %}" method="post">
+        {% csrf_token %}
+        {{ add_to_cart_form.as_p }}
+        <button type="submit" >اضافه به سبد خرید</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load farsi_numbers_tags %}
+{% load humanize %}
+{% load math_functions %}
+
+
+{% block title %}سفارش{% endblock %}
+
+{% block content %}
+
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ارسال</button>
+    </form>
+
+    {% for item in cart %}
+        {{ item.case_obj.title }}
+        {{ item.meter|intcomma:False|farsi_number }}
+        {{ item.case_obj.base_value|mul_func:item.meter|intcomma:False|farsi_number }}
+    {% endfor %}
+
+    <p>مجموع</p>
+    {{ cart.total_value|intcomma:False|farsi_number }}
+
+{% endblock %}
+
+
