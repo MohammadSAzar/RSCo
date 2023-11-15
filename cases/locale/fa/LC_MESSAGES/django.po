@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 08:54+0330\n"
+"POT-Creation-Date: 2023-11-15 10:39+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,28 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
 #: .\models.py:11
 msgid "Active"
 msgstr "فعال"
 
 #: .\models.py:12
 msgid "Soon"
-msgstr "به زودی ..."
+msgstr "به زودی"
 
 #: .\models.py:13
 msgid "Ended"
 msgstr "خاتمه یافته"
 
 #: .\models.py:15
-#, fuzzy
-#| msgid "title"
 msgid "Title"
 msgstr "پروژه"
 
-#: .\models.py:16
-#, fuzzy
-#| msgid "maker"
+#: .\models.py:16 .\templates\cases\case_detail.html:14
+#: .\templates\cases\home.html:13
 msgid "Maker"
 msgstr "سازنده"
 
@@ -47,56 +43,41 @@ msgid "City"
 msgstr "شهر"
 
 #: .\models.py:18
-#, fuzzy
-#| msgid "region"
 msgid "Region"
 msgstr "منطقه"
 
-#: .\models.py:19
-#, fuzzy
-#| msgid "capacity"
+#: .\models.py:19 .\templates\cases\case_detail.html:16
 msgid "Capacity"
 msgstr "ظرفیت"
 
-#: .\models.py:20 .\models.py:68
-#, fuzzy
-#| msgid "base value"
-msgid "Base value"
-msgstr "قیمت پایه"
+#: .\models.py:20 .\templates\cases\case_detail.html:17
+#: .\templates\cases\home.html:15
+msgid "Min of investment"
+msgstr "حداقل سرمایه‌گذاری"
 
-#: .\models.py:21
-#, fuzzy
-#| msgid "buy insurance"
-msgid "Buy insurance"
+#: .\models.py:21 .\templates\cases\case_detail.html:20
+msgid "Buy assurance"
 msgstr "ضمانت خرید"
 
-#: .\models.py:22
-#, fuzzy
-#| msgid "guaranteed gain"
+#: .\models.py:22 .\templates\cases\case_detail.html:18
 msgid "Guaranteed gain"
 msgstr "سود تضمینی"
 
-#: .\models.py:23
-#, fuzzy
-#| msgid "guaranteed gain percent"
+#: .\models.py:23 .\templates\cases\case_detail.html:19
+#: .\templates\cases\home.html:16
 msgid "Guaranteed gain percent"
 msgstr "درصد سود تضمینی"
 
-#: .\models.py:24
-#, fuzzy
-#| msgid "end time"
+#: .\models.py:24 .\templates\cases\case_detail.html:21
+#: .\templates\cases\home.html:17
 msgid "End time"
-msgstr "زمان اتمام"
+msgstr "تاریخ اتمام پروژه"
 
 #: .\models.py:25
-#, fuzzy
-#| msgid "description"
 msgid "Description"
-msgstr "توضیحات پروژه"
+msgstr "توضیحات"
 
-#: .\models.py:26
-#, fuzzy
-#| msgid "status"
+#: .\models.py:26 .\templates\cases\case_detail.html:13
 msgid "Status"
 msgstr "وضعیت پروژه"
 
@@ -156,8 +137,26 @@ msgstr "سفارش"
 msgid "Project"
 msgstr "پروژه"
 
+#: .\models.py:67
+msgid "Area"
+msgstr "متراژ انتخابی"
+
+#: .\models.py:68
+msgid "Base value"
+msgstr "قیمت پایه"
+
+#: .\templates\cases\case_detail.html:11 .\templates\cases\home.html:12
+msgid "title"
+msgstr "عنوان"
+
+#: .\templates\cases\case_detail.html:15 .\templates\cases\home.html:14
+msgid "Position"
+msgstr "موقعیت"
+
 #: .\templates\cases\case_detail.html:17 .\templates\cases\home.html:15
 msgid "tooman"
 msgstr "تومان"
 
-
+#: .\templates\cases\case_detail.html:22
+msgid "Total price"
+msgstr "قیمت کل"
