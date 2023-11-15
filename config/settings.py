@@ -130,6 +130,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom User Model
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
+# locale
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'templates/locale'),
+    # os.path.join(BASE_DIR, 'mysite', 'locale'),
+)
+
 # Static & Media
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
