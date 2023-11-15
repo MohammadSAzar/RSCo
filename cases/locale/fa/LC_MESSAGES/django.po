@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-01 19:28+0330\n"
+"POT-Creation-Date: 2023-11-15 08:54+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,99 +18,146 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\models.py:9
+#: .\models.py:11
 msgid "Active"
 msgstr "فعال"
 
-#: .\models.py:10
+#: .\models.py:12
 msgid "Soon"
 msgstr "به زودی ..."
 
-#: .\models.py:11
+#: .\models.py:13
 msgid "Ended"
 msgstr "خاتمه یافته"
 
-#: .\models.py:13 .\templates\cases\case_detail.html:11
-#: .\templates\cases\home.html:12
-msgid "title"
+#: .\models.py:15
+#, fuzzy
+#| msgid "title"
+msgid "Title"
 msgstr "پروژه"
 
-#: .\models.py:14 .\templates\cases\case_detail.html:14
-#: .\templates\cases\home.html:13
-msgid "maker"
+#: .\models.py:16
+#, fuzzy
+#| msgid "maker"
+msgid "Maker"
 msgstr "سازنده"
 
-#: .\models.py:15
-msgid "city"
+#: .\models.py:17
+msgid "City"
 msgstr "شهر"
 
-#: .\models.py:16
-msgid "region"
+#: .\models.py:18
+#, fuzzy
+#| msgid "region"
+msgid "Region"
 msgstr "منطقه"
 
-#: .\models.py:17 .\templates\cases\case_detail.html:16
-msgid "capacity"
+#: .\models.py:19
+#, fuzzy
+#| msgid "capacity"
+msgid "Capacity"
 msgstr "ظرفیت"
 
-#: .\models.py:18 .\templates\cases\case_detail.html:18
-msgid "meter"
-msgstr "متراژ انتخابی"
-
-#: .\models.py:19
-msgid "base value"
+#: .\models.py:20 .\models.py:68
+#, fuzzy
+#| msgid "base value"
+msgid "Base value"
 msgstr "قیمت پایه"
 
-#: .\models.py:20
-msgid "buy insurance"
+#: .\models.py:21
+#, fuzzy
+#| msgid "buy insurance"
+msgid "Buy insurance"
 msgstr "ضمانت خرید"
 
-#: .\models.py:21 .\templates\cases\case_detail.html:19
-msgid "guaranteed gain"
+#: .\models.py:22
+#, fuzzy
+#| msgid "guaranteed gain"
+msgid "Guaranteed gain"
 msgstr "سود تضمینی"
 
-#: .\models.py:22 .\templates\cases\case_detail.html:20
-#: .\templates\cases\home.html:16
-msgid "guaranteed gain percent"
+#: .\models.py:23
+#, fuzzy
+#| msgid "guaranteed gain percent"
+msgid "Guaranteed gain percent"
 msgstr "درصد سود تضمینی"
 
-#: .\models.py:23
-msgid "end time"
+#: .\models.py:24
+#, fuzzy
+#| msgid "end time"
+msgid "End time"
 msgstr "زمان اتمام"
 
-#: .\models.py:24
-msgid "description"
+#: .\models.py:25
+#, fuzzy
+#| msgid "description"
+msgid "Description"
 msgstr "توضیحات پروژه"
 
-#: .\models.py:25 .\templates\cases\case_detail.html:13
-msgid "status"
+#: .\models.py:26
+#, fuzzy
+#| msgid "status"
+msgid "Status"
 msgstr "وضعیت پروژه"
 
-#: .\models.py:26
-msgid "cover"
-msgstr ""
+#: .\models.py:27
+msgid "Cover"
+msgstr "تصویر"
 
-#: .\templates\cases\case_detail.html:15 .\templates\cases\home.html:14
-msgid "position"
-msgstr "موقعیت"
+#: .\models.py:29
+msgid "Date and time of creation"
+msgstr "زمان انتشار"
 
-#: .\templates\cases\case_detail.html:17 .\templates\cases\home.html:15
-msgid "min of investment"
-msgstr "حداقل سرمایه‌گذاری"
+#: .\models.py:47
+msgid "User"
+msgstr "کاربر"
+
+#: .\models.py:48
+msgid "First Name"
+msgstr "نام"
+
+#: .\models.py:49
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: .\models.py:50
+msgid "Phone Number"
+msgstr "تلفن همراه"
+
+#: .\models.py:51
+msgid "National Code"
+msgstr "کد ملی"
+
+#: .\models.py:52
+msgid "Address"
+msgstr "نشانی"
+
+#: .\models.py:53
+msgid "Payment Status"
+msgstr "وضعیت پرداخت"
+
+#: .\models.py:54
+msgid "Notes"
+msgstr "یادداشت"
+
+#: .\models.py:55
+msgid "Date & time of creation"
+msgstr "زمان انتشار"
+
+#: .\models.py:56
+msgid "Date & time of modification"
+msgstr "زمان بازبینی"
+
+#: .\models.py:65
+msgid "Order"
+msgstr "سفارش"
+
+#: .\models.py:66
+msgid "Project"
+msgstr "پروژه"
 
 #: .\templates\cases\case_detail.html:17 .\templates\cases\home.html:15
 msgid "tooman"
 msgstr "تومان"
-
-#: .\templates\cases\case_detail.html:21
-msgid "buy assurance"
-msgstr "تضمین خرید"
-
-#: .\templates\cases\case_detail.html:22 .\templates\cases\home.html:17
-msgid "end of the projct"
-msgstr "تاریخ اتمام پروژه"
-
-#: .\templates\cases\case_detail.html:23
-msgid "total price"
-msgstr "سرمایه‌گذاری نهایی شما"
 
 
