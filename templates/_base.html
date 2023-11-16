@@ -42,7 +42,7 @@
 
 </head>
 
-<body dir='rtl' class="c-layout-header-fixed c-layout-header-6-topbar">
+<body dir='rtl' class="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-fullscreen">
 
     <!-- ************************* Header ************************* -->
     <header class="c-layout-header c-layout-header-4 c-bordered c-layout-header-default-mobile c-header-transparent-dark" data-minimize-offset="80">
@@ -53,9 +53,9 @@
                     <!-- Logo -->
                     <div class="c-brand c-pull-left">
                         <a href="{% url 'case_list' %}" class="c-logo">
-                            <img src="{% static 'assets/base/img/layout/logos/logo-3.png' %}" alt="JANGO" class="c-desktop-logo">
-                            <img src="{% static 'assets/base/img/layout/logos/logo-3.png' %}" alt="JANGO" class="c-desktop-logo-inverse">
-                            <img src="{% static 'assets/base/img/layout/logos/logo-3.png' %}" alt="JANGO" class="c-mobile-logo">
+                            <img src="{% static 'assets/base/img/logo/logo-3.png' %}" alt="JANGO" class="c-desktop-logo">
+                            <img src="{% static 'assets/base/img/logo/logo-3.png' %}" alt="JANGO" class="c-desktop-logo-inverse">
+                            <img src="{% static 'assets/base/img/logo/logo-3.png' %}" alt="JANGO" class="c-mobile-logo">
                         </a>
 
                         <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
@@ -193,9 +193,15 @@
     <!-- ************************* End of Header ************************* -->
 
 
-    {% block content %}
 
-    {% endblock %}
+    <!-- ************************* Container ************************* -->
+    <div class="c-layout-page">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <!-- ************************* End of Container ************************* -->
+
 
 
 

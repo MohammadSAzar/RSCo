@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 {% load i18n %}
 {% load farsi_numbers_tags %}
 {% load humanize %}
@@ -7,6 +8,145 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
+    <!-- ************************* Top Image ************************* -->
+    <section class="c-layout-revo-slider c-layout-revo-slider-11" dir="ltr">
+        <div class="tp-banner-container tp-fullscreen tp-fullscreen-mobile c-arrow-darken" data-bullets-pos="center">
+            <div class="tp-banner rev_slider" data-version="5.0">
+                <ul>
+                    <!--BEGIN: SLIDE #2 -->
+                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000">
+                        <img
+                            alt=""
+                            src="{% static 'assets/base/img/bg/bg-90.jpg' %}"
+                            data-bgposition="center center"
+                            data-bgfit="cover"
+                            data-bgrepeat="no-repeat"
+                            >
+                        <div class="tp-caption customin customout"
+                            data-x="center"
+                            data-y="center"
+                            data-hoffset=""
+                            data-voffset="-50"
+                            data-speed="500"
+                            data-start="1000"
+                            data-transform_in="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:500;e:Back.easeInOut;"
+                            data-transform_out="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:600;e:Back.easeInOut;"
+
+                            data-splitin="none"
+                            data-splitout="none"
+                            data-elementdelay="0.1"
+                            data-endelementdelay="0.1"
+                            data-endspeed="600">
+                            <h3 class="c-main-title c-font-48 c-font-bold c-font-center c-font-uppercase c-font-dark c-block">
+                                {% trans 'The greatest opportunities' %}<br>{% trans 'for investment in real state with the lowest money' %}
+                            </h3>
+                        </div>
+                        <div class="tp-caption lft"
+                            data-x="center"
+                            data-y="center"
+                            data-voffset="130"
+                            data-speed="900"
+                            data-start="2000"
+                             data-transform_in="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:900;e:Expo.easeInOut;"
+                            data-transform_out="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:900;e:Expo.easeInOut;" >
+                            <a href="#" class="c-action-btn btn btn-xlg c-btn-border-2x c-btn-square c-btn-dark c-btn-bold c-btn-uppercase">{% trans 'Start' %}</a>
+                        </div>
+                    </li>
+                    <!--END -->
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- ************************* Top Image ************************* -->
+
+    <!-- ************************* Projects at Homepage ************************* -->
+    <div class="c-content-box c-size-md c-bg-parallax" style="background-image: url(../../assets/base/img/content/backgrounds/bg-87.jpg)">
+        <div class="container">
+            <div class="c-content-feature-9">
+                <!-- Begin: Title 1 component -->
+                <div class="c-content-title-1">
+                    <h3 class="c-font-uppercase c-center c-font-bold">{% trans 'Opportunities for Investment' %}</h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                    <p class="c-font-center">{% trans 'You can choose your project here to invest!' %}</p>
+                </div>
+                <!-- End-->
+                <ul class="c-list">
+                    <li class="wow animate fadeInUp">
+                        <div class="c-card">
+                            <i class="icon-rocket c-font-blue-1-5 c-font-22 c-bg-white c-float-left"></i>
+                            <div class="c-content c-content-left">
+                                <h3 class="c-theme-font c-font-uppercase c-font-bold">پشتیبانی کامل از css3</h3>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wow animate fadeInUp">
+                        <div class="c-card">
+                            <i class="icon-user c-font-blue-1-5 c-font-27 c-bg-white c-float-left"></i>
+                            <div class="c-content c-content-left">
+                                <h3 class="c-theme-font c-font-uppercase c-font-bold">وظایف گروهی</h3>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wow animate fadeInUp">
+                        <div class="c-card">
+                            <i class="icon-basket c-font-blue-1-5 c-font-27 c-bg-white c-float-left"></i>
+                            <div class="c-content c-content-left">
+                                <h3 class="c-theme-font c-font-uppercase c-font-bold">واکنشگرا UI</h3>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="c-list">
+                    <li class="wow animate fadeInUp">
+                        <div class="c-card">
+                            <i class="icon-bulb c-font-blue-1-5 c-font-22 c-bg-white c-float-left"></i>
+                            <div class="c-content c-content-left">
+                                <h3 class="c-theme-font c-font-uppercase c-font-bold">مدیریت آسان</h3>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wow animate fadeInUp">
+                        <div class="c-card">
+                            <i class="icon-pie-chart c-font-blue-1-5 c-font-27 c-bg-white c-float-left"></i>
+                            <div class="c-content c-content-left">
+                                <h3 class="c-theme-font c-font-uppercase c-font-bold">گزارش های سریع</h3>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wow animate fadeInUp">
+                        <div class="c-card">
+                            <i class="icon-trophy c-font-blue-1-5 c-font-27 c-bg-white c-float-left"></i>
+                            <div class="c-content c-content-left">
+                                <h3 class="c-theme-font c-font-uppercase c-font-bold">پشتیبانی عالی</h3>
+                                <p>
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- ************************* Projects at Homepage ************************* -->
+
+
     {% for case in cases %}
         <a href="{{ case.get_absolute_url }}"><img src="{{ case.cover.url }}" alt="" width="300" height="300"></a>
         <h2><a href="{{ case.get_absolute_url }}" style="text-decoration: none">{% trans 'title' %}: {{ case.title|farsi_number }}</a></h2>
@@ -16,4 +156,6 @@
         <p>{% trans 'Guaranteed gain percent' %}: {{ case.guaranteed_gain_percent|farsi_number }}</p>
         <p>{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>
     {% endfor %}
+
+
 {% endblock %}
