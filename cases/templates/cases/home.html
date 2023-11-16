@@ -60,102 +60,75 @@
     </section>
     <!-- ************************* Top Image ************************* -->
 
-    <!-- ************************* Projects at Homepage ************************* -->
+    <!-- ************************* Cases at Homepage ************************* -->
     <div class="c-content-box c-size-md c-bg-parallax" style="background-image: url(../../assets/base/img/content/backgrounds/bg-87.jpg)">
         <div class="container">
             <div class="c-content-feature-9">
-                <!-- Begin: Title 1 component -->
+
+                <!-- Title of the projects -->
                 <div class="c-content-title-1">
                     <h3 class="c-font-uppercase c-center c-font-bold">{% trans 'Opportunities for Investment' %}</h3>
                     <div class="c-line-center c-theme-bg"></div>
                     <p class="c-font-center">{% trans 'You can choose your project here to invest!' %}</p>
                 </div>
-                <!-- End-->
-                <ul class="c-list">
-                    <li class="wow animate fadeInUp">
-                        <div class="c-card">
-                            <i class="icon-rocket c-font-blue-1-5 c-font-22 c-bg-white c-float-left"></i>
-                            <div class="c-content c-content-left">
-                                <h3 class="c-theme-font c-font-uppercase c-font-bold">پشتیبانی کامل از css3</h3>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                </p>
+                <!-- end of Title of the projects -->
+
+                <div class="row">
+
+                    <!-- Case list -->
+                    {% for case in cases %}
+                        <div class="col-md-3 col-sm-6 c-margin-b-20">
+                            <div class="c-content-product-2 c-bg-white">
+
+                                <!-- Case image shit -->
+                                <div class="c-content-overlay">
+                                    <div class="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">{{ case.get_status_display }}</div>
+                                    <div class="c-label c-label-right c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">{{ case.get_status_display }}</div>
+
+                                    <!-- Hover -->
+{#                                    <div class="c-overlay-wrapper">#}
+{#                                        <div class="c-overlay-content">#}
+{#                                            <a href="{{ case.cover.url }}" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">مشاهده</a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+                                     <!-- end of Hover -->
+
+                                    <a href="{{ case.get_absolute_url }}"><div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 330px; background-image: url({{ case.cover.url }});"></div></a>
+                                </div>
+                                <!-- end of Case image shit -->
+
+                                <!-- Case data shit -->
+                                <div class="c-info">
+                                    <h3 class="c-title c-font-18 c-font-slim" style="margin-bottom: 1.6em;"><a href="{{ case.get_absolute_url }}">{{ case.title|farsi_number }}</a></h3>
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'Maker' %}: {{ case.maker }}</p>
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'Guaranteed gain percent' %}: {{ case.guaranteed_gain_percent|farsi_number }}</p>
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>
+                                </div>
+                                <!-- end of Case data shit -->
+
+                                <!-- Case links -->
+                                <div class="btn-group btn-group-justified" role="group">
+                                    <div class="btn-group c-border-top" role="group">
+                                        <a href="{{ case.get_absolute_url }}" class="btn btn-lg c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">{% trans 'See Project' %}</a>
+                                    </div>
+                                    <div class="btn-group c-border-left c-border-top" role="group">
+                                        <a href="{% url 'case_list' %}" class="btn btn-lg c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">{% trans 'Add to List' %}</a>
+                                    </div>
+                                </div>
+                                <!-- end of Case links -->
+
                             </div>
                         </div>
-                    </li>
-                    <li class="wow animate fadeInUp">
-                        <div class="c-card">
-                            <i class="icon-user c-font-blue-1-5 c-font-27 c-bg-white c-float-left"></i>
-                            <div class="c-content c-content-left">
-                                <h3 class="c-theme-font c-font-uppercase c-font-bold">وظایف گروهی</h3>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="wow animate fadeInUp">
-                        <div class="c-card">
-                            <i class="icon-basket c-font-blue-1-5 c-font-27 c-bg-white c-float-left"></i>
-                            <div class="c-content c-content-left">
-                                <h3 class="c-theme-font c-font-uppercase c-font-bold">واکنشگرا UI</h3>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="c-list">
-                    <li class="wow animate fadeInUp">
-                        <div class="c-card">
-                            <i class="icon-bulb c-font-blue-1-5 c-font-22 c-bg-white c-float-left"></i>
-                            <div class="c-content c-content-left">
-                                <h3 class="c-theme-font c-font-uppercase c-font-bold">مدیریت آسان</h3>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="wow animate fadeInUp">
-                        <div class="c-card">
-                            <i class="icon-pie-chart c-font-blue-1-5 c-font-27 c-bg-white c-float-left"></i>
-                            <div class="c-content c-content-left">
-                                <h3 class="c-theme-font c-font-uppercase c-font-bold">گزارش های سریع</h3>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="wow animate fadeInUp">
-                        <div class="c-card">
-                            <i class="icon-trophy c-font-blue-1-5 c-font-27 c-bg-white c-float-left"></i>
-                            <div class="c-content c-content-left">
-                                <h3 class="c-theme-font c-font-uppercase c-font-bold">پشتیبانی عالی</h3>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                    {% endfor %}
+                    <!-- end of Case list -->
+
+                </div>
             </div>
         </div>
     </div>
-    <!-- ************************* Projects at Homepage ************************* -->
-
-
-    {% for case in cases %}
-        <a href="{{ case.get_absolute_url }}"><img src="{{ case.cover.url }}" alt="" width="300" height="300"></a>
-        <h2><a href="{{ case.get_absolute_url }}" style="text-decoration: none">{% trans 'title' %}: {{ case.title|farsi_number }}</a></h2>
-        <p>{% trans 'Maker' %}: {{ case.maker }}</p>
-        <p>{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
-        <p>{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>
-        <p>{% trans 'Guaranteed gain percent' %}: {{ case.guaranteed_gain_percent|farsi_number }}</p>
-        <p>{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>
-    {% endfor %}
+    <!-- ************************* End: Cases at Homepage ************************* -->
 
 
 {% endblock %}
