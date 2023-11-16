@@ -1,25 +1,135 @@
 {% extends '_base.html' %}
+{% load static %}
 {% load i18n %}
 {% load farsi_numbers_tags %}
 {% load humanize %}
 
-
 {% block title %}{{ case.title }}{% endblock %}
 
 {% block content %}
-    <img src="{{ case.cover.url }}" alt="" width="300" height="300">
-    <h1>{% trans 'title' %}: {{ case.title|farsi_number }}</h1>
-    <p>{{ case.description }}</p>
-    <p>{% trans 'Status' %}: {{ case.get_status_display }}</p>
-    <p>{% trans 'Maker' %}: {{ case.maker }}</p>
-    <p>{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
-    <p>{% trans 'Capacity' %}: {{ case.capacity|intcomma:False|farsi_number }}</p>
-    <p>{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>
-    <p>{% trans 'Guaranteed gain' %}: {{ case.guaranteed_gain }}</p>
-    <p>{% trans 'Guaranteed gain percent' %}: {{ case.guaranteed_gain_percent|farsi_number }}</p>
-    <p>{% trans 'Buy assurance' %}: {{ case.buy_assurance }}</p>
-    <p>{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>
-    <p>{% trans 'Total price' %}: یک قیمتی</p>
+
+    <!-- Case detail >>> top ribbon -->
+    <div class="c-layout-breadcrumbs-1 c-subtitle c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both" style="margin-top: 100px; background: #f2f2f2">
+        <div class="container">
+            <div class="c-page-title c-pull-left">
+                <h3 class="c-font-uppercase c-font-sbold">{% trans 'Details of the project' %} "{{ case.title|farsi_number }}"</h3>
+            </div>
+        </div>
+    </div>
+    <!-- end of Case detail >>> top ribbon -->
+
+    <!-- Detail of the case -->
+    <div class="c-content-box c-size-lg c-overflow-hide c-bg-white">
+<div class="container">
+    <div class="c-shop-product-details-2">
+        <div class="row">
+
+            <!-- cover -->
+            <div class="col-md-6">
+                <div class="c-product-gallery">
+                    <div class="c-product-gallery-content"><img src="{{ case.cover.url }}"></div>
+                </div>
+            </div>
+            <!-- end of cover -->
+
+            <div class="col-md-6">
+                <div class="c-product-meta">
+                    <div class="c-content-title-1">
+                        <h3 class="c-font-uppercase c-font-bold">{{ case.title|farsi_number }}</h3>
+                        <div class="c-line-left"></div>
+                    </div>
+                    <div class="c-product-badge">
+                        <div class="c-product-sale">{{ case.get_status_display }}</div>
+                        <div class="c-product-new">{{ case.get_status_display }}</div>
+                    </div>
+                    <div class="c-product-review"></div>
+                    <div class="c-product-price">
+                        <p style="font-size: 0.5em">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>
+                    </div>
+                    <div class="c-product-price">
+                        <p style="font-size: 0.5em">{% trans 'Maker' %}: {{ case.maker }}</p>
+                    </div>
+                    <div class="c-product-price">
+                        <p style="font-size: 0.5em">{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
+                    </div>
+                    <div class="c-product-price">
+                        <p style="font-size: 0.5em">{% trans 'Guaranteed gain percent' %}: {{ case.guaranteed_gain_percent|farsi_number }}</p>
+                    </div>
+                     <div class="c-product-price">
+                        <p style="font-size: 0.5em">{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>
+                    </div>
+
+
+                    <div class="c-product-short-desc">
+                        <p>{{ case.description }}</p>
+                    </div>
+
+                    <div class="row c-product-variant">
+                        <div class="col-sm-12 col-xs-12">
+                            <p class="c-product-meta-label c-product-margin-1 c-font-uppercase c-font-bold">Size:</p>
+                            <div class="c-product-size">
+                                <select>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12 c-margin-t-20">
+                            <div class="c-product-color">
+                                <p class="c-product-meta-label c-font-uppercase c-font-bold">Color:</p>
+                                <select>
+                                    <option value="Red">Red</option>
+                                    <option value="Black">Black</option>
+                                    <option value="Beige">Beige</option>
+                                    <option value="White">White</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-product-add-cart c-margin-t-20">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-12">
+                                <div class="c-input-group c-spinner">
+                                    <p class="c-product-meta-label c-product-margin-2 c-font-uppercase c-font-bold">QTY:</p>
+                                    <input type="text" class="form-control c-item-1" value="1">
+                                    <div class="c-input-group-btn-vertical">
+                                        <button class="btn btn-default" type="button" data_input="c-item-1"><i class="fa fa-caret-up"></i></button>
+                                        <button class="btn btn-default" type="button" data_input="c-item-1"><i class="fa fa-caret-down"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12 c-margin-t-20">
+                                <button class="btn c-btn btn-lg c-font-bold c-font-white c-theme-btn c-btn-square c-font-uppercase">اضافه به سبد خرید</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <!-- end of Detail of the case -->
+
+
+
+
+
+{#    <img src="{{ case.cover.url }}" alt="" width="300" height="300">#}
+{#    <h1>{% trans 'title' %}: {{ case.title|farsi_number }}</h1>#}
+{#    <p>{{ case.description }}</p>#}
+{#    <p>{% trans 'Status' %}: {{ case.get_status_display }}</p>#}
+{#    <p>{% trans 'Maker' %}: {{ case.maker }}</p>#}
+{#    <p>{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>#}
+{#    <p>{% trans 'Capacity' %}: {{ case.capacity|intcomma:False|farsi_number }} {% trans 'meters' %}</p>#}
+{#    <p>{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>#}
+{#    <p>{% trans 'Guaranteed gain' %}: {{ case.guaranteed_gain }}</p>#}
+{#    <p>{% trans 'Guaranteed gain percent' %}: {{ case.guaranteed_gain_percent|farsi_number }}</p>#}
+{#    <p>{% trans 'Buy assurance' %}: {{ case.buy_assurance }}</p>#}
+{#    <p>{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>#}
+{#    <p>{% trans 'Total price' %}: یک قیمتی</p>#}
 
     <form action="{% url 'cart_add' case.id %}" method="post">
         {% csrf_token %}
