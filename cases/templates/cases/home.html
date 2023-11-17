@@ -100,11 +100,15 @@
                                 <!-- Case data shit -->
                                 <div class="c-info">
                                     <h3 class="c-title c-font-18 c-font-slim" style="margin-bottom: 1.6em;"><a href="{{ case.get_absolute_url }}">{{ case.title|farsi_number }}</a></h3>
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'Maker' %}: {{ case.maker }}</p>
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'Guaranteed gain percent' %}: {{ case.guaranteed_gain_percent|farsi_number }}</p>
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1em;">{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Maker' %}: {{ case.maker }}</p>
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>
+                                    {% if case.guaranteed_gain == True %}
+                                        <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Guaranteed gain percent' %}: <span style="color: #28a03a; font-size: 1.2em">{{ case.guaranteed_gain_percent|farsi_number }}</span></p>
+                                    {% else %}
+                                        <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Guaranteed gain percent' %}: {% trans 'do not have' %}</p>
+                                    {% endif %}
+                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>
                                 </div>
                                 <!-- end of Case data shit -->
 

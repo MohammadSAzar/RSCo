@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-16 15:09+0330\n"
+"POT-Creation-Date: 2023-11-17 16:41+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr "خاتمه یافته"
 msgid "Title"
 msgstr "پروژه"
 
-#: .\models.py:16 .\templates\cases\case_detail.html:14
+#: .\models.py:16 .\templates\cases\case_detail.html:61
 #: .\templates\cases\home.html:103
 msgid "Maker"
 msgstr "سازنده"
@@ -47,29 +47,30 @@ msgstr "شهر"
 msgid "Region"
 msgstr "منطقه"
 
-#: .\models.py:19 .\templates\cases\case_detail.html:16
+#: .\models.py:19
 msgid "Capacity"
 msgstr "ظرفیت"
 
-#: .\models.py:20 .\templates\cases\case_detail.html:17
+#: .\models.py:20 .\templates\cases\case_detail.html:58
 #: .\templates\cases\home.html:105
 msgid "Min of investment"
 msgstr "حداقل سرمایه‌گذاری"
 
-#: .\models.py:21 .\templates\cases\case_detail.html:20
+#: .\models.py:21 .\templates\cases\case_detail.html:68
+#: .\templates\cases\case_detail.html:71
 msgid "Buy assurance"
 msgstr "ضمانت خرید"
 
-#: .\models.py:22 .\templates\cases\case_detail.html:18
+#: .\models.py:22
 msgid "Guaranteed gain"
 msgstr "سود تضمینی"
 
-#: .\models.py:23 .\templates\cases\case_detail.html:19
-#: .\templates\cases\home.html:106
+#: .\models.py:23 .\templates\cases\case_detail.html:76
+#: .\templates\cases\case_detail.html:79 .\templates\cases\home.html:106
 msgid "Guaranteed gain percent"
 msgstr "درصد سود تضمینی"
 
-#: .\models.py:24 .\templates\cases\case_detail.html:21
+#: .\models.py:24 .\templates\cases\case_detail.html:83
 #: .\templates\cases\home.html:107
 msgid "End time"
 msgstr "تاریخ اتمام پروژه"
@@ -78,7 +79,7 @@ msgstr "تاریخ اتمام پروژه"
 msgid "Description"
 msgstr "توضیحات"
 
-#: .\models.py:26 .\templates\cases\case_detail.html:13
+#: .\models.py:26
 msgid "Status"
 msgstr "وضعیت پروژه"
 
@@ -146,21 +147,29 @@ msgstr "متراژ انتخابی"
 msgid "Base value"
 msgstr "قیمت پایه"
 
-#: .\templates\cases\case_detail.html:11
-msgid "title"
-msgstr "عنوان"
+#: .\templates\cases\case_detail.html:16
+msgid "Details of the project"
+msgstr "جزئیات پروژه"
 
-#: .\templates\cases\case_detail.html:15 .\templates\cases\home.html:104
-msgid "Position"
-msgstr "موقعیت"
-
-#: .\templates\cases\case_detail.html:17 .\templates\cases\home.html:105
+#: .\templates\cases\case_detail.html:58 .\templates\cases\home.html:105
 msgid "tooman"
 msgstr "تومان"
 
-#: .\templates\cases\case_detail.html:22
-msgid "Total price"
-msgstr "قیمت کل"
+#: .\templates\cases\case_detail.html:64 .\templates\cases\home.html:104
+msgid "Position"
+msgstr "موقعیت"
+
+#: .\templates\cases\case_detail.html:68
+msgid "have"
+msgstr "دارد"
+
+#: .\templates\cases\case_detail.html:71 .\templates\cases\case_detail.html:79
+msgid "do not have"
+msgstr "ندارد"
+
+#: .\templates\cases\case_detail.html:123
+msgid "Description of the project"
+msgstr "توضیحات پروژه"
 
 #: .\templates\cases\home.html:42
 msgid "The greatest opportunities"
@@ -189,3 +198,9 @@ msgstr "مشاهده پروژه"
 #: .\templates\cases\home.html:117
 msgid "Add to List"
 msgstr "افزودن به لیست"
+
+#~ msgid "title"
+#~ msgstr "عنوان"
+
+#~ msgid "Total price"
+#~ msgstr "قیمت کل"
