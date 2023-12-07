@@ -68,7 +68,9 @@
                                     <p style="font-size: 0.5em">{% trans 'Buy assurance' %}: <span style="color: #28a03a;">{% trans 'have' %}</span></p>
                                 </div>
                             {% else %}
-                                <p style="font-size: 0.5em">{% trans 'Buy assurance' %}: {% trans 'do not have' %}</p>
+                                <div class="c-product-price">
+                                    <p style="font-size: 0.5em">{% trans 'Buy assurance' %}: {% trans 'do not have' %}</p>
+                                </div>
                             {% endif %}
 
                             {% if case.guaranteed_gain == True %}

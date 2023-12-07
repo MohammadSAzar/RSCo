@@ -2,26 +2,136 @@
 {% load i18n %}
 {% load farsi_numbers_tags %}
 {% load humanize %}
+{% load widget_tweaks %}
 
 
 {% block title %}Cart{% endblock %}
 
 {% block content %}
-    {% for item in cart %}
-        <a href="{{ item.case_obj.get_absolut_url }}">{{ item.case_obj.title }}</a>
-        {{ item.case_obj.price|intcomma:False|farsi_number }}
-        <form action="{% url 'cart_add' item.case_obj.id %}" method="post">
-            {% csrf_token %}
-            <div class="quantity">
-                <input type="number" class="quantity-input" name="number" id="qty-1" value="{{ item.meter }}" min="1">
-                {{ item.case_update_number_form.inplace }}
-{#                <button type="submit">بروزرسانی</button>#}
-            </div>
-        </form>
-        {{ item.total_price|intcomma:False|farsi_number }}
-    {% endfor %}
 
-    <a href="{% url 'order_create' %}">ثبت سفارش</a>
+
+    <!-- Cart detail >>> top ribbon -->
+    <div class="c-layout-breadcrumbs-1 c-subtitle c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both" style="margin-top: 100px; background: #f2f2f2">
+        <div class="container">
+            <div class="c-page-title c-pull-left">
+                <h3 class="c-font-uppercase c-font-sbold">{% trans 'Details of the cart' %}</h3>
+            </div>
+        </div>
+    </div>
+    <!-- END: Cart detail >>> top ribbon -->
+
+
+    <!-- Cart detail -->
+
+    <div class="c-content-box c-size-lg">
+        <div class="container">
+            <div class="c-shop-cart-page-1">
+
+                <!-- Top row of cart detail -->
+                <div class="row c-cart-table-title">
+
+                    <div class="col-md-2 c-cart-image">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Row' %}</h3>
+                    </div>
+
+                    <div class="col-md-4 c-cart-desc">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Case' %}</h3>
+                    </div>
+
+{#                    <div class="col-md-1 c-cart-ref">#}
+{#                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">شماره قرارداد</h3>#}
+{#                    </div>#}
+
+                    <div class="col-md-2 c-cart-qty">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Meter' %}</h3>
+                    </div>
+
+                    <div class="col-md-2 c-cart-price">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Each Fee' %}</h3>
+                    </div>
+
+                    <div class="col-md-1 c-cart-total">
+                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Final Fee' %}</h3>
+                    </div>
+
+                    <div class="col-md-1 c-cart-remove"></div>
+                </div>
+                <!-- End: Top row of cart detail -->
+
+                <!-- Main table of cart detail -->
+                {% for item in cart %}
+                    <div class="row c-cart-table-row">
+{#                        <h2 class="c-font-uppercase c-font-bold c-theme-bg c-font-white c-cart-item-title c-cart-item-first">Item 1</h2>#}
+
+                        <div class="col-md-2 col-sm-3 col-xs-5 c-cart-image">
+                            <img src="{{ item.case_obj.cover.url }}">
+                        </div>
+
+                        <div class="col-md-4 col-sm-9 col-xs-7 c-cart-desc">
+                            <h3><a href="{{ item.case_obj.get_absolut_url }}" class="c-font-bold c-theme-link c-font-22 c-font-dark">{{ item.case_obj.title }}</a></h3>
+                        </div>
+
+{#                        <div class="col-md-1 col-sm-3 col-xs-6 c-cart-ref">#}
+    {#                        <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">SKU</p>#}
+    {#                        <p>120715</p>#}
+    {#                    </div>#}
+
+                        <div class="col-md-2 col-sm-3 col-xs-6 c-cart-qty">
+                            <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans 'Meter' %}</p>
+                            <div class="c-input-group c-spinner">
+                                <form action="{% url 'cart_add' item.case_obj.id %}" method="post">
+                                    {% csrf_token %}
+                                        <input type="number" class=" form-control no-border" style="width: 50%" name="meter" value="{{ item.meter }}" min="1"><br><br>
+                                        {{ item.case_update_meter_form.inplace }}
+                                        <button type="submit" style="width: 50%; font-size: 0.8em">{% trans 'Update' %}</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-3 col-xs-6 c-cart-price">
+                            <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans 'Each Fee' %}</p>
+                            <p class="c-cart-price c-font-bold">{{ item.case_obj.base_value|intcomma:False|farsi_number }}</p>
+                        </div>
+
+                        <div class="col-md-1 col-sm-3 col-xs-6 c-cart-total">
+                            <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans 'Final Fee' %}</p>
+                            <p class="c-cart-price c-font-bold">{{ item.total_price|intcomma:False|farsi_number }}</p>
+                        </div>
+
+                        <div class="col-md-1 col-sm-12 c-cart-remove">
+                            <a href="{% url 'cart_remove' item.case_obj.id %}" class="c-theme-link c-cart-remove-desktop" style="font-size: 0.7em; font-weight: bold; color: red; margin-right: 1em">{% trans 'Remove' %}</a>
+                            <a href="{% url 'cart_remove' item.case_obj.id %}" class="c-cart-remove-mobile btn c-btn c-btn-md c-btn-square c-btn-red c-btn-border-1x c-font-uppercase" style="font-size: 0.7em; font-weight: bold; color: red; margin-right: 1.5em">{% trans 'Remove' %}</a>
+                        </div>
+
+                    </div>
+                {% endfor %}
+                <!-- End: Main table of cart detail -->
+
+                <!-- Total price -->
+                <div class="row">
+                    <div class="c-cart-subtotal-row c-margin-t-20" style="">
+                        <div class="col-md-2 col-md-offset-9 col-sm-6 col-xs-6 c-cart-subtotal-border" style="">
+                            <h3 class="c-font-uppercase c-font-bold c-right c-font-16 c-font-grey-2">{% trans 'Final Value (Tooman)' %}:</h3>
+                        </div>
+                        <div class="col-md-1 col-sm-6 col-xs-6 c-cart-subtotal-border" style="">
+                            <h3 class="c-font-bold c-font-16">{{ cart.total_value|intcomma:False|farsi_number }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- End: Total price -->
+
+                <div class="c-cart-buttons">
+{#                    <a href="#" class="btn c-btn btn-lg c-btn-red c-btn-square c-font-white c-font-bold c-font-uppercase c-cart-float-l">Continue Shopping</a>#}
+                    <a href="{% url 'case_list' %}" class="btn c-btn btn-lg c-theme-btn c-btn-square c-font-white c-font-bold c-font-uppercase c-cart-float-r">{% trans 'Payment' %}</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- End: Cart detail -->
+
+
 {% endblock %}
 
 
