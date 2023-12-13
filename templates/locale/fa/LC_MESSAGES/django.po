@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 18:38+0330\n"
+"POT-Creation-Date: 2023-12-13 18:06+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,55 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: .\_base.html:93
+
+#: .\_base.html:86 .\_base.html:334
 msgid "Homepage"
 msgstr "خانه"
 
-#: .\_base.html:96
+#: .\_base.html:91 .\_base.html:337
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: .\_base.html:122
+#: .\_base.html:96 .\_base.html:340
 msgid "Services"
 msgstr "خدمات"
 
-#: .\_base.html:125
+#: .\_base.html:114 .\_base.html:354
 msgid "Blog"
 msgstr "بلاگ"
 
-#: .\_base.html:128
+#: .\_base.html:119 .\_base.html:357
+msgid "Important Data"
+msgstr "اطلاعات"
+
+#: .\_base.html:124 .\_base.html:360
+msgid "Contact Us"
+msgstr "تماس با ما"
+
+#: .\_base.html:129 .\_base.html:363
+msgid "About Us"
+msgstr "درباره ما"
+
+#: .\_base.html:134 .\_base.html:366
+msgid "Rules"
+msgstr "قوانین"
+
+#: .\_base.html:139 .\_base.html:369
 msgid "FAQ"
 msgstr "سوالات متداول"
+
+#: .\_base.html:146 .\_base.html:374
+msgid "Account"
+msgstr "حساب کاربری"
+
+#: .\_base.html:151 .\_base.html:377
+msgid "Sign-Up"
+msgstr "ثبت نام"
+
+#: .\_base.html:155 .\_base.html:380
+msgid "Login"
+msgstr "ورود"
+
+#: .\_base.html:158 .\_base.html:383
+msgid "Panel"
+msgstr "پنل کاربری"

@@ -9,56 +9,305 @@
 
 {% block content %}
 
-    <!-- ************************* Top Image ************************* -->
-    <section class="c-layout-revo-slider c-layout-revo-slider-11" dir="ltr">
-        <div class="tp-banner-container tp-fullscreen tp-fullscreen-mobile c-arrow-darken" data-bullets-pos="center">
-            <div class="tp-banner rev_slider" data-version="5.0">
-                <ul>
-                    <!--BEGIN: SLIDE #2 -->
-                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000">
-                        <img
-                            alt=""
-                            src="{% static 'assets/base/img/bg/bg-90.jpg' %}"
-                            data-bgposition="center center"
-                            data-bgfit="cover"
-                            data-bgrepeat="no-repeat"
-                            >
-                        <div class="tp-caption customin customout"
-                            data-x="center"
-                            data-y="center"
-                            data-hoffset=""
-                            data-voffset="-50"
-                            data-speed="500"
-                            data-start="1000"
-                            data-transform_in="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:500;e:Back.easeInOut;"
-                            data-transform_out="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:600;e:Back.easeInOut;"
+    <main class="main-content-wrapper">
+        <!-- Banner Start -->
+        <section class="homepage-slider mb--75 mb-md--55" style="direction: ltr">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="element-carousel slick-right-bottom"
+                             data-slick-options='{
+                                "slidesToShow": 1,
+                                "arrows": true,
+                                "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "la la-arrow-right" },
+                                "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "la la-arrow-left" }
+                            }'
+                             data-slick-responsive='[{"breakpoint": 768, "settings": {"arrows": false}}]'>
+                            <div class="item">
+                                <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#dbf3f2">
+                                    <div class="row align-items-center g-0 w-100"style="direction: rtl" >
+                                        <div class="col-xl-7 col-md-6 mb-sm--50">
+                                            <figure data-animation="fadeInUp" data-duration=".3s" data-delay=".3s" class="plr--15">
+                                                <img src="{% static 'img/slider/slider-02-img-01.png' %}" alt="Slider O1 image" class="mx-auto">
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-6 col-lg-5 offset-lg-1 offset-xl-0">
+                                            <div class="slider-content">
+                                                <div class="slider-content__text mb--40 mb-md--30">
+                                                    <p class="mb--15" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s"># رونـد جـدیدـ</p>
+                                                    <p class="mb--20" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">در نور دنیای تو خودت را روشن تر کن</p>
+                                                    <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">                                                    <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s"> نـورپـردازی زیبـا و خلاقـانـه</h1>
+                                                    </h1>
+                                                </div>
+                                                <div class="slider-content__btn">
+                                                    <a href="#" class="btn btn-outline btn-brw-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">اکنون خرید کنید</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Banner End -->
 
-                            data-splitin="none"
-                            data-splitout="none"
-                            data-elementdelay="0.1"
-                            data-endelementdelay="0.1"
-                            data-endspeed="600">
-                            <h3 class="c-main-title c-font-48 c-font-bold c-font-center c-font-uppercase c-font-dark c-block">
-                                {% trans 'The greatest opportunities' %}<br>{% trans 'for investment in real state with the lowest money' %}
-                            </h3>
+       <!-- Main Content Wrapper Start -->
+        <div  class="main-content-wrapper">
+            <div class="shop-page-wrapper ptb--80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+
+
+                            <div class="shop-toolbar mb--50">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5 mb-sm--30 mb-xs--10">
+                                        <div class="shop-toolbar__left">
+                                            <div class="product-ordering">
+                                                <select class="product-ordering__select nice-select">
+                                                    <option value="0">مرتب سازی پیش فرض</option>
+                                                    <option value="1">ارتباط</option>
+                                                    <option value="2">نام الف تا ج</option>
+                                                    <option value="3">نام ج تا ی</option>
+                                                    <option value="4">قیمت، کم به بالا</option>
+                                                    <option value="5">قیمت، بالا به پایین</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="shop-toolbar__right d-flex justify-content-md-end justify-content-start flex-sm-row flex-column">
+                                            <p class="product-pages">نمایش نتیجه 08 در میان 72</p>
+                                            <div class="product-view-mode ml--50 ml-xs--0">
+                                                <a class="active" href="#" data-target="grid">
+                                                    <img src="files/img/icons/grid.png" alt="Grid">
+                                                </a>
+                                                <a href="#" data-target="list">
+                                                    <img src="files/img/icons/list.png" alt="Grid">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="shop-products">
+                                <div class="row">
+
+                                    {% for case in cases %}
+                                        <div class="col-xl-3 col-lg-4 col-sm-6 mb--50">
+                                            <div class="ft-product">
+                                                <div class="product-inner">
+                                                    <div class="product-image">
+                                                        <figure class="product-image--holder">
+                                                            <img src="{{ case.cover.url }}" alt="Product">
+                                                        </figure>
+                                                        <a href="{{ case.get_absolute_url }}" class="product-overlay"></a>
+                                                        <div class="product-action">
+                                                            <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
+                                                                <i class="la la-eye"></i>
+                                                            </a>
+                                                            <a href="wishlist.html" class="action-btn">
+                                                                <i class="la la-heart-o"></i>
+                                                            </a>
+                                                            <a href="wishlist.html" class="action-btn">
+                                                                <i class="la la-repeat"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-info">
+{#                                                        <div class="product-category">#}
+{#                                                            <a href="{{ case.get_absolute_url }}">{{ case.title }}</a>#}
+{#                                                        </div>#}
+                                                        <h3 class="product-title" style="margin-bottom: 1em; font-weight: bold; font-size: 1.2em;"><a href="{{ case.get_absolute_url }}">{{ case.title|farsi_number }}</a></h3>
+                                                        <p class="product-title">{% trans 'Maker' %}: {{ case.maker }}</p>
+                                                        <p class="product-title">{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
+                                                        {% if case.guaranteed_gain == True %}
+                                                            <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="color: #28a03a; font-size: 1.2em">{{ case.guaranteed_gain_percent|farsi_number }}</span></p>
+                                                        {% else %}
+                                                            <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="font-size: 1.2em">{% trans 'do not have' %}</span></p>
+                                                        {% endif %}
+
+                                                        <div class="product-info-bottom" style="margin-bottom: 1em">
+                                                            <div class="product-price-wrapper">
+                                                                <span class="money" style="font-size: 0.9em">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-info-bottom">
+                                                            <div class="slider-content__btn">
+                                                                <a href="{{ case.get_absolute_url }}" class="btn btn-outline btn-brw-2 btn-brc-2" style="background: #FF5151FF; color: white; border-radius: 3em; border-color: #FF5151FF; margin-bottom: 1.5em; font-weight: 400;">{% trans 'See Project' %}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ft-product-list">
+                                                <div class="product-inner">
+                                                    <figure class="product-image">
+                                                        <a href="product-details.html">
+                                                            <img src="files/img/products/prod-04-270x300.jpg" alt="Products">
+                                                        </a>
+                                                        <div class="product-thumbnail-action">
+                                                            <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn quick-view">
+                                                                <i class="la la-eye"></i>
+                                                            </a>
+                                                        </div>
+                                                    </figure>
+                                                    <div class="product-info">
+                                                        <h3 class="product-title mb--25">
+                                                            <a href="product-details.html">صندلی نقطه ای طلایی.</a>
+                                                        </h3>
+                                                        <div class="ft-product-action-list mb--20">
+                                                            <div class="product-size mb--25">
+                                                                <div class="product-size-swatch">
+                                                            <span class="product-size-swatch-btn variation-btn">
+                                                                XL
+                                                            </span>
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                L
+                                                            </span>
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                M
+                                                            </span>
+                                                                    <span class="product-size-swatch-btn variation-btn">
+                                                                S
+                                                            </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-color">
+                                                                <div class="product-color-swatch">
+                                                            <span class="product-color-swatch-btn variation-btn abbey">
+                                                                ابی
+                                                            </span>
+                                                                    <span class="product-color-swatch-btn variation-btn blue">
+                                                                آبی
+                                                            </span>
+                                                                    <span class="product-color-swatch-btn variation-btn copper">
+                                                                فلز مس
+                                                            </span>
+                                                                    <span class="product-color-swatch-btn variation-btn old-rose">
+                                                                رز پیر
+                                                            </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-price-wrapper mb--15 mb-sm--10">
+                                                            <span class="money">80 تومان</span>
+                                                            <span class="money-separator">-</span>
+                                                            <span class="money">200 تومان</span>
+                                                        </div>
+                                                        <p class="product-short-description mb--20">
+                                                            مبل در لغت به معنای وسیله نشیمن یا کمکی برای نشستن بوده و در واقع یک کلمه فرانسوی است که ریشه در زبان انگلیسی دارد. ساختار کلی مبل چهار پایه است که با روکش نرم و پارچه برای نشستن طراحی شده است. با توجه به این تعاریف مشخص می شود که منظور از مبل چیست.                                    </p>
+                                                        <div class="ft-product-action-list d-flex align-items-center">
+                                                            <a href="cart.html" class="btn btn-size-md">افزودن به سبد خرید</a>
+                                                            <a href="wishlist.html" class="ml--20 action-btn">
+                                                                <i class="la la-heart-o"></i>
+                                                            </a>
+                                                            <a href="wishlist.html" class="ml--20 action-btn">
+                                                                <i class="la la-repeat"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <nav class="pagination-wrap">
+                                <ul class="pagination" style="direction: rtl">
+                                    <li><span class="page-number current">1</span></li>
+                                    <li><a href="#" class="page-number">2</a></li>
+                                    <li><span class="dot"></span></li>
+                                    <li><span class="dot"></span></li>
+                                    <li><span class="dot"></span></li>
+                                    <li><a href="#" class="page-number">16</a></li>
+                                </ul>
+                            </nav>
+
                         </div>
-                        <div class="tp-caption lft"
-                            data-x="center"
-                            data-y="center"
-                            data-voffset="130"
-                            data-speed="900"
-                            data-start="2000"
-                             data-transform_in="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:900;e:Expo.easeInOut;"
-                            data-transform_out="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;s:900;e:Expo.easeInOut;" >
-                            <a href="#" class="c-action-btn btn btn-xlg c-btn-border-2x c-btn-square c-btn-dark c-btn-bold c-btn-uppercase">{% trans 'Start' %}</a>
-                        </div>
-                    </li>
-                    <!--END -->
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <!-- ************************* Top Image ************************* -->
+        <!-- Main Content Wrapper Start -->
+
+        <!-- Blog Area Start -->
+        <section class="blog-area mb--70 mb-md--50">
+            <div class="container">
+                <div class="row mb--35 mb-md--23">
+                    <div class="col-12 text-center">
+                        <h2>ویـرایش خبـر</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="element-carousel" data-slick-options='{
+                                "spaceBetween": 30,
+                                "slidesToShow": 3,
+                                "slidesToScroll": 1
+                            }'
+                             data-slick-responsive='[
+                                {"breakpoint": 992, "settings": {"slidesToShow": 2}},
+                                {"breakpoint": 768, "settings": {"slidesToShow": 1}}
+                            ]'>
+                            <div class="item">
+                                <article class="blog">
+                                    <div class="blog__inner">
+                                        <div class="blog__media">
+                                            <figure class="image">
+                                                <img src="files/img/blog/blog-01.jpg" alt="Blog" class="w-100">
+                                                <a href="blog-details-image.html" class="item-overlay"></a>
+                                            </figure>
+                                        </div>
+                                        <div class="blog__info">
+                                            <h2 class="blog__title"><a href="blog-details-image.html">انواع مختلفی از معابر لرم وجود دارد.</a></h2>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="item">
+                                <article class="blog">
+                                    <div class="blog__inner">
+                                        <div class="blog__media">
+                                            <figure class="image">
+                                                <img src="files/img/blog/blog-02.jpg" alt="Blog" class="w-100">
+                                                <a href="blog-details-image.html" class="item-overlay"></a>
+                                            </figure>
+                                        </div>
+                                        <div class="blog__info">
+                                            <h2 class="blog__title"><a href="blog-details-image.html">انواع مختلفی از معابر لرم وجود دارد.</a></h2>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="item">
+                                <article class="blog">
+                                    <div class="blog__inner">
+                                        <div class="blog__media">
+                                            <figure class="image">
+                                                <img src="files/img/blog/blog-03.jpg" alt="Blog" class="w-100">
+                                                <a href="blog-details-image.html" class="item-overlay"></a>
+                                            </figure>
+                                        </div>
+                                        <div class="blog__info">
+                                            <h2 class="blog__title"><a href="blog-details-image.html">انواع مختلفی از معابر لرم وجود دارد.</a></h2>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Area End -->
+    </main>
 
     <!-- ************************* Cases at Homepage ************************* -->
     <div class="c-content-box c-size-md c-bg-parallax" style="background-image: url(../../assets/base/img/content/backgrounds/bg-87.jpg)">

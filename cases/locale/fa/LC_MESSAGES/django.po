@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-07 21:59+0330\n"
+"POT-Creation-Date: 2023-12-13 18:03+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid "Title"
 msgstr "پروژه"
 
 #: .\models.py:16 .\templates\cases\case_detail.html:61
-#: .\templates\cases\home.html:103
+#: .\templates\cases\home.html:127 .\templates\cases\home.html:352
 msgid "Maker"
 msgstr "سازنده"
 
@@ -52,9 +52,9 @@ msgid "Capacity"
 msgstr "ظرفیت"
 
 #: .\models.py:20 .\templates\cases\case_detail.html:58
-#: .\templates\cases\home.html:105
+#: .\templates\cases\home.html:137 .\templates\cases\home.html:354
 msgid "Min of investment"
-msgstr "حداقل سرمایه‌گذاری"
+msgstr "حداقل خرید"
 
 #: .\models.py:21 .\templates\cases\case_detail.html:68
 #: .\templates\cases\case_detail.html:72
@@ -66,13 +66,14 @@ msgid "Guaranteed gain"
 msgstr "سود تضمینی"
 
 #: .\models.py:23 .\templates\cases\case_detail.html:78
-#: .\templates\cases\case_detail.html:82 .\templates\cases\home.html:107
-#: .\templates\cases\home.html:109
+#: .\templates\cases\case_detail.html:82 .\templates\cases\home.html:130
+#: .\templates\cases\home.html:132 .\templates\cases\home.html:356
+#: .\templates\cases\home.html:358
 msgid "Guaranteed gain percent"
 msgstr "درصد سود تضمینی"
 
 #: .\models.py:24 .\templates\cases\case_detail.html:87
-#: .\templates\cases\home.html:111
+#: .\templates\cases\home.html:360
 msgid "End time"
 msgstr "تاریخ اتمام پروژه"
 
@@ -199,11 +200,13 @@ msgstr "پرداخت"
 msgid "Details of the project"
 msgstr "جزئیات پروژه"
 
-#: .\templates\cases\case_detail.html:58 .\templates\cases\home.html:105
+#: .\templates\cases\case_detail.html:58 .\templates\cases\home.html:137
+#: .\templates\cases\home.html:354
 msgid "tooman"
 msgstr "تومان"
 
-#: .\templates\cases\case_detail.html:64 .\templates\cases\home.html:104
+#: .\templates\cases\case_detail.html:64 .\templates\cases\home.html:128
+#: .\templates\cases\home.html:353
 msgid "Position"
 msgstr "موقعیت"
 
@@ -212,7 +215,7 @@ msgid "have"
 msgstr "دارد"
 
 #: .\templates\cases\case_detail.html:72 .\templates\cases\case_detail.html:82
-#: .\templates\cases\home.html:109
+#: .\templates\cases\home.html:132 .\templates\cases\home.html:358
 msgid "do not have"
 msgstr "ندارد"
 
@@ -220,33 +223,30 @@ msgstr "ندارد"
 msgid "Description of the project"
 msgstr "توضیحات پروژه"
 
-#: .\templates\cases\home.html:42
-msgid "The greatest opportunities"
-msgstr "مطمئن‌ترین فرصت‌های سرمایه‌گذاری"
-
-#: .\templates\cases\home.html:42
-msgid "for investment in real state with the lowest money"
-msgstr "در بازار مسکن با کمترین پول"
-
-#: .\templates\cases\home.html:53
-msgid "Start"
-msgstr "شروع سرمایه‌گذاری"
-
-#: .\templates\cases\home.html:70
+#: .\templates\cases\home.html:319
 msgid "Opportunities for Investment"
 msgstr "فرصت‌های سرمایه‌گذاری"
 
-#: .\templates\cases\home.html:72
+#: .\templates\cases\home.html:321
 msgid "You can choose your project here to invest!"
 msgstr "اینجا می‌توانید پروژه مورد نظر خود را انتخاب کنید"
 
-#: .\templates\cases\home.html:118
+#: .\templates\cases\home.html:367
 msgid "See Project"
 msgstr "مشاهده پروژه"
 
-#: .\templates\cases\home.html:121
+#: .\templates\cases\home.html:370
 msgid "Add to List"
 msgstr "افزودن به لیست"
+
+#~ msgid "The greatest opportunities"
+#~ msgstr "مطمئن‌ترین فرصت‌های سرمایه‌گذاری"
+
+#~ msgid "for investment in real state with the lowest money"
+#~ msgstr "در بازار مسکن با کمترین پول"
+
+#~ msgid "Start"
+#~ msgstr "شروع سرمایه‌گذاری"
 
 #, fuzzy
 #~| msgid "Base value"
