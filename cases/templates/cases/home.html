@@ -11,7 +11,7 @@
 
     <main class="main-content-wrapper">
         <!-- Banner Start -->
-        <section class="homepage-slider mb--75 mb-md--55" style="direction: ltr">
+        <section class="homepage-slider" style="direction: ltr">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -61,40 +61,45 @@
                     <div class="row">
                         <div class="col-12">
 
-
+                            <!-- Shit above the case list -->
                             <div class="shop-toolbar mb--50">
                                 <div class="row align-items-center">
-                                    <div class="col-md-5 mb-sm--30 mb-xs--10">
-                                        <div class="shop-toolbar__left">
-                                            <div class="product-ordering">
-                                                <select class="product-ordering__select nice-select">
-                                                    <option value="0">مرتب سازی پیش فرض</option>
-                                                    <option value="1">ارتباط</option>
-                                                    <option value="2">نام الف تا ج</option>
-                                                    <option value="3">نام ج تا ی</option>
-                                                    <option value="4">قیمت، کم به بالا</option>
-                                                    <option value="5">قیمت، بالا به پایین</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="shop-toolbar__right d-flex justify-content-md-end justify-content-start flex-sm-row flex-column">
-                                            <p class="product-pages">نمایش نتیجه 08 در میان 72</p>
-                                            <div class="product-view-mode ml--50 ml-xs--0">
-                                                <a class="active" href="#" data-target="grid">
-                                                    <img src="files/img/icons/grid.png" alt="Grid">
-                                                </a>
-                                                <a href="#" data-target="list">
-                                                    <img src="files/img/icons/list.png" alt="Grid">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h1 style="font-weight: 600; font-size: 1.6em; text-align: center; margin-bottom: 1.5em">{% trans 'Opportunities for Investment' %}</h1>
+
+{#                                    <div class="col-md-5 mb-sm--30 mb-xs--10">#}
+{#                                        <div class="shop-toolbar__left">#}
+{#                                            <div class="product-ordering">#}
+{#                                                <select class="product-ordering__select nice-select">#}
+{#                                                    <option value="0">مرتب سازی پیش فرض</option>#}
+{#                                                    <option value="1">ارتباط</option>#}
+{#                                                    <option value="2">نام الف تا ج</option>#}
+{#                                                    <option value="3">نام ج تا ی</option>#}
+{#                                                    <option value="4">قیمت، کم به بالا</option>#}
+{#                                                    <option value="5">قیمت، بالا به پایین</option>#}
+{#                                                </select>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+
+{#                                    <div class="col-md-7">#}
+{#                                        <div class="shop-toolbar__right d-flex justify-content-md-end justify-content-start flex-sm-row flex-column">#}
+{#                                            <p class="product-pages">نمایش نتیجه 08 در میان 72</p>#}
+{#                                            <div class="product-view-mode ml--50 ml-xs--0">#}
+{#                                                <a class="active" href="#" data-target="grid">#}
+{#                                                    <img src="files/img/icons/grid.png" alt="Grid">#}
+{#                                                </a>#}
+{#                                                <a href="#" data-target="list">#}
+{#                                                    <img src="files/img/icons/list.png" alt="Grid">#}
+{#                                                </a>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+
                                 </div>
                             </div>
+                            <!-- End: Shit above the case list -->
 
-
+                            <!-- case list -->
                             <div class="shop-products">
                                 <div class="row">
 
@@ -107,17 +112,15 @@
                                                             <img src="{{ case.cover.url }}" alt="Product">
                                                         </figure>
                                                         <a href="{{ case.get_absolute_url }}" class="product-overlay"></a>
+
+                                                        <!-- add buttons -->
                                                         <div class="product-action">
-                                                            <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
-                                                                <i class="la la-eye"></i>
-                                                            </a>
-                                                            <a href="wishlist.html" class="action-btn">
-                                                                <i class="la la-heart-o"></i>
-                                                            </a>
-                                                            <a href="wishlist.html" class="action-btn">
-                                                                <i class="la la-repeat"></i>
+                                                            <a href="{% url 'case_list' %}" class="action-btn" style="background-color: #4cae4c; border: none">
+                                                                <i class="la"><span style="font-weight: 700; color: white">+</span></i>
                                                             </a>
                                                         </div>
+                                                        <!-- End: add buttons -->
+
                                                     </div>
                                                     <div class="product-info">
 {#                                                        <div class="product-category">#}
@@ -127,14 +130,14 @@
                                                         <p class="product-title">{% trans 'Maker' %}: {{ case.maker }}</p>
                                                         <p class="product-title">{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
                                                         {% if case.guaranteed_gain == True %}
-                                                            <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="color: #28a03a; font-size: 1.2em">{{ case.guaranteed_gain_percent|farsi_number }}</span></p>
+                                                            <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="color: #4cae4c; font-size: 1.2em">{{ case.guaranteed_gain_percent|farsi_number }}</span></p>
                                                         {% else %}
-                                                            <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="font-size: 1.2em">{% trans 'do not have' %}</span></p>
+                                                            <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="font-size: 1em">{% trans 'do not have' %}</span></p>
                                                         {% endif %}
 
                                                         <div class="product-info-bottom" style="margin-bottom: 1em">
-                                                            <div class="product-price-wrapper">
-                                                                <span class="money" style="font-size: 0.9em">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</span>
+                                                            <div class="product-price-wrapper" style="justify-content: center">
+                                                                <span class="money" style="font-size: 0.9em;">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</span>
                                                             </div>
                                                         </div>
                                                         <div class="product-info-bottom">
@@ -218,6 +221,7 @@
                                     {% endfor %}
                                 </div>
                             </div>
+                            <!-- case list -->
 
                             <nav class="pagination-wrap">
                                 <ul class="pagination" style="direction: rtl">
