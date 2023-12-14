@@ -9,7 +9,7 @@ from .cart import Cart
 
 class CaseListView(ListView):
     queryset = Case.objects.filter(status='a')
-    paginate_by = 6
+    paginate_by = 2
     context_object_name = 'cases'
     template_name = 'cases/home.html'
 

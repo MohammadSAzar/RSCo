@@ -99,7 +99,7 @@
                             </div>
                             <!-- End: Shit above the case list -->
 
-                            <!-- case list -->
+                            <!-- Case list -->
                             <div class="shop-products">
                                 <div class="row">
 
@@ -120,8 +120,8 @@
                                                             </a>
                                                         </div>
                                                         <!-- End: add buttons -->
-
                                                     </div>
+
                                                     <div class="product-info">
 {#                                                        <div class="product-category">#}
 {#                                                            <a href="{{ case.get_absolute_url }}">{{ case.title }}</a>#}
@@ -146,93 +146,27 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="ft-product-list">
-                                                <div class="product-inner">
-                                                    <figure class="product-image">
-                                                        <a href="product-details.html">
-                                                            <img src="files/img/products/prod-04-270x300.jpg" alt="Products">
-                                                        </a>
-                                                        <div class="product-thumbnail-action">
-                                                            <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn quick-view">
-                                                                <i class="la la-eye"></i>
-                                                            </a>
-                                                        </div>
-                                                    </figure>
-                                                    <div class="product-info">
-                                                        <h3 class="product-title mb--25">
-                                                            <a href="product-details.html">صندلی نقطه ای طلایی.</a>
-                                                        </h3>
-                                                        <div class="ft-product-action-list mb--20">
-                                                            <div class="product-size mb--25">
-                                                                <div class="product-size-swatch">
-                                                            <span class="product-size-swatch-btn variation-btn">
-                                                                XL
-                                                            </span>
-                                                                    <span class="product-size-swatch-btn variation-btn">
-                                                                L
-                                                            </span>
-                                                                    <span class="product-size-swatch-btn variation-btn">
-                                                                M
-                                                            </span>
-                                                                    <span class="product-size-swatch-btn variation-btn">
-                                                                S
-                                                            </span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-color">
-                                                                <div class="product-color-swatch">
-                                                            <span class="product-color-swatch-btn variation-btn abbey">
-                                                                ابی
-                                                            </span>
-                                                                    <span class="product-color-swatch-btn variation-btn blue">
-                                                                آبی
-                                                            </span>
-                                                                    <span class="product-color-swatch-btn variation-btn copper">
-                                                                فلز مس
-                                                            </span>
-                                                                    <span class="product-color-swatch-btn variation-btn old-rose">
-                                                                رز پیر
-                                                            </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-price-wrapper mb--15 mb-sm--10">
-                                                            <span class="money">80 تومان</span>
-                                                            <span class="money-separator">-</span>
-                                                            <span class="money">200 تومان</span>
-                                                        </div>
-                                                        <p class="product-short-description mb--20">
-                                                            مبل در لغت به معنای وسیله نشیمن یا کمکی برای نشستن بوده و در واقع یک کلمه فرانسوی است که ریشه در زبان انگلیسی دارد. ساختار کلی مبل چهار پایه است که با روکش نرم و پارچه برای نشستن طراحی شده است. با توجه به این تعاریف مشخص می شود که منظور از مبل چیست.                                    </p>
-                                                        <div class="ft-product-action-list d-flex align-items-center">
-                                                            <a href="cart.html" class="btn btn-size-md">افزودن به سبد خرید</a>
-                                                            <a href="wishlist.html" class="ml--20 action-btn">
-                                                                <i class="la la-heart-o"></i>
-                                                            </a>
-                                                            <a href="wishlist.html" class="ml--20 action-btn">
-                                                                <i class="la la-repeat"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                     {% endfor %}
                                 </div>
                             </div>
-                            <!-- case list -->
+                            <!-- End: Case list -->
 
+                            <!-- Pagination -->
                             <nav class="pagination-wrap">
                                 <ul class="pagination" style="direction: rtl">
-                                    <li><span class="page-number current">1</span></li>
-                                    <li><a href="#" class="page-number">2</a></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><a href="#" class="page-number">16</a></li>
+                                    {% if page_obj.has_previous %}
+                                        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-number">قبل</a></li>
+                                    {% endif %}
+                                    {% if page_obj.has_next %}
+                                        <li><a href="?page={{ page_obj.next_page_number }}" class="page-number">بعد</a></li>
+                                    {% endif %}
                                 </ul>
                             </nav>
+                            <!-- Pagination -->
 
                         </div>
                     </div>
@@ -312,80 +246,5 @@
         </section>
         <!-- Blog Area End -->
     </main>
-
-    <!-- ************************* Cases at Homepage ************************* -->
-    <div class="c-content-box c-size-md c-bg-parallax" style="background-image: url(../../assets/base/img/content/backgrounds/bg-87.jpg)">
-        <div class="container">
-            <div class="c-content-feature-9">
-
-                <!-- Title of the projects -->
-                <div class="c-content-title-1">
-                    <h3 class="c-font-uppercase c-center c-font-bold">{% trans 'Opportunities for Investment' %}</h3>
-                    <div class="c-line-center c-theme-bg"></div>
-                    <p class="c-font-center">{% trans 'You can choose your project here to invest!' %}</p>
-                </div>
-                <!-- end of Title of the projects -->
-
-                <div class="row">
-
-                    <!-- Case list -->
-                    {% for case in cases %}
-                        <div class="col-md-3 col-sm-6 c-margin-b-20">
-                            <div class="c-content-product-2 c-bg-white">
-
-                                <!-- Case image shit -->
-                                <div class="c-content-overlay">
-                                    <div class="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">{{ case.get_status_display }}</div>
-                                    <div class="c-label c-label-right c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">{{ case.get_status_display }}</div>
-
-                                    <!-- Hover -->
-{#                                    <div class="c-overlay-wrapper">#}
-{#                                        <div class="c-overlay-content">#}
-{#                                            <a href="{{ case.cover.url }}" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">مشاهده</a>#}
-{#                                        </div>#}
-{#                                    </div>#}
-                                     <!-- end of Hover -->
-
-                                    <a href="{{ case.get_absolute_url }}"><div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 330px; background-image: url({{ case.cover.url }});"></div></a>
-                                </div>
-                                <!-- end of Case image shit -->
-
-                                <!-- Case data shit -->
-                                <div class="c-info">
-                                    <h3 class="c-title c-font-18 c-font-slim" style="margin-bottom: 1.6em;"><a href="{{ case.get_absolute_url }}">{{ case.title|farsi_number }}</a></h3>
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Maker' %}: {{ case.maker }}</p>
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Position' %}: {{ case.city }} - {{ case.region }}</p>
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</p>
-                                    {% if case.guaranteed_gain == True %}
-                                        <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Guaranteed gain percent' %}: <span style="color: #28a03a; font-size: 1.2em">{{ case.guaranteed_gain_percent|farsi_number }}</span></p>
-                                    {% else %}
-                                        <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'Guaranteed gain percent' %}: {% trans 'do not have' %}</p>
-                                    {% endif %}
-                                    <p class="c-price c-font-12 c-font-slim" style="margin-bottom: 1.2em;">{% trans 'End time' %}: {{ case.end_time|farsi_number }}</p>
-                                </div>
-                                <!-- end of Case data shit -->
-
-                                <!-- Case links -->
-                                <div class="btn-group btn-group-justified" role="group">
-                                    <div class="btn-group c-border-top" role="group">
-                                        <a href="{{ case.get_absolute_url }}" class="btn btn-lg c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">{% trans 'See Project' %}</a>
-                                    </div>
-                                    <div class="btn-group c-border-left c-border-top" role="group">
-                                        <a href="{% url 'case_list' %}" class="btn btn-lg c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">{% trans 'Add to List' %}</a>
-                                    </div>
-                                </div>
-                                <!-- end of Case links -->
-
-                            </div>
-                        </div>
-                    {% endfor %}
-                    <!-- end of Case list -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ************************* End: Cases at Homepage ************************* -->
-
 
 {% endblock %}
