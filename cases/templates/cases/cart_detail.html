@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 {% load i18n %}
 {% load farsi_numbers_tags %}
 {% load humanize %}
@@ -9,127 +10,238 @@
 
 {% block content %}
 
-
-    <!-- Cart detail >>> top ribbon -->
-    <div class="c-layout-breadcrumbs-1 c-subtitle c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both" style="margin-top: 100px; background: #f2f2f2">
+    <!-- Cart detail >>> banner -->
+    <section class="page-title-area bg-image ptb--80" data-bg-image="{% static 'img/bg/page_title_bg.jpg' %}">
         <div class="container">
-            <div class="c-page-title c-pull-left">
-                <h3 class="c-font-uppercase c-font-sbold">{% trans 'Details of the cart' %}</h3>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">سبد خرید شما</h1>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- END: Cart detail >>> top ribbon -->
+    </section>
+    <!-- End:  Cart detail >>> banner -->
 
 
-    <!-- Cart detail -->
+    <!-- Cart detail >>> banner -->
+    <div class="main-content-wrapper">
+        <div class="page-content-inner ptb--80 pt-md--40 pb-md--60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mb-md--50">
+                        <div class="row g-0">
+                            <div class="col-12">
+                                <div class="table-content table-responsive">
+                                    <table class="table text-center">
 
-    <div class="c-content-box c-size-lg">
-        <div class="container">
-            <div class="c-shop-cart-page-1">
+                                        <thead>
+                                        <tr>
+                                            <th>&nbsp;</th>
+                                            <th>&nbsp;</th>
+                                            <th class="text-start" style="font-weight: normal; font-size: 1em">{% trans 'Case' %}</th>
+                                            <th style="font-weight: normal; font-size: 1em">{% trans 'Each Fee' %}</th>
+                                            <th style="font-weight: normal; font-size: 1em">{% trans 'Meter' %}</th>
+                                            <th style="font-weight: normal; font-size: 1em">{% trans 'Final Fee' %}</th>
+                                        </tr>
+                                        </thead>
 
-                <!-- Top row of cart detail -->
-                <div class="row c-cart-table-title">
 
-                    <div class="col-md-2 c-cart-image">
-                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Row' %}</h3>
-                    </div>
 
-                    <div class="col-md-4 c-cart-desc">
-                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Case' %}</h3>
-                    </div>
+                                        <tbody>
 
-{#                    <div class="col-md-1 c-cart-ref">#}
-{#                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">شماره قرارداد</h3>#}
-{#                    </div>#}
+                                            {% for item in cart %}
+                                                <tr>
+                                                    <td class="product-remove text-start"><a href="{% url 'cart_remove' item.case_obj.id %}"><i class="la la-remove"></i></a></td>
+                                                    <td class="product-thumbnail text-start" style="padding-left: 20px"><img src="{{ item.case_obj.cover.url }}" alt="Product Thumnail"></td>
+                                                    <td class="product-name text-start wide-column">
+                                                        <h3><a href="{{ item.case_obj.get_absolute_url }}">{{ item.case_obj.title|farsi_number }}</a></h3>
+                                                    </td>
+                                                    <td class="product-price">
+                                                        <span class="product-price-wrapper"><span class="money">{{ item.case_obj.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</span></span>
+                                                    </td>
+                                                    <td class="product-quantity">
+                                                        <form action="{% url 'cart_add' item.case_obj.id %}" method="post">
+                                                            {% csrf_token %}
+                                                            <input type="number" class="quantity-input" style="width: 50%; border: 1px solid black; margin-bottom: 2px;" name="meter" value="{{ item.meter }}" min="1">
+                                                            <div style="margin-top: 2px;">{{ item.case_update_meter_form.inplace }}</div>
+                                                            <button type="submit" style="border: 1px solid black;">{% trans 'Update' %}</button>
+                                                        </form>
+                                                    </td>
+                                                    <td class="product-total-price">
+                                                        <span class="product-price-wrapper">
+                                                            <span class="money">{{ item.total_price|intcomma:False|farsi_number }}</span>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
 
-                    <div class="col-md-2 c-cart-qty">
-                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Meter' %}</h3>
-                    </div>
 
-                    <div class="col-md-2 c-cart-price">
-                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Each Fee' %}</h3>
-                    </div>
-
-                    <div class="col-md-1 c-cart-total">
-                        <h3 class="c-font-uppercase c-font-bold c-font-16 c-font-grey-2">{% trans 'Final Fee' %}</h3>
-                    </div>
-
-                    <div class="col-md-1 c-cart-remove"></div>
-                </div>
-                <!-- End: Top row of cart detail -->
-
-                <!-- Main table of cart detail -->
-                {% for item in cart %}
-                    <div class="row c-cart-table-row">
-{#                        <h2 class="c-font-uppercase c-font-bold c-theme-bg c-font-white c-cart-item-title c-cart-item-first">Item 1</h2>#}
-
-                        <div class="col-md-2 col-sm-3 col-xs-5 c-cart-image">
-                            <img src="{{ item.case_obj.cover.url }}">
-                        </div>
-
-                        <div class="col-md-4 col-sm-9 col-xs-7 c-cart-desc">
-                            <h3><a href="{{ item.case_obj.get_absolut_url }}" class="c-font-bold c-theme-link c-font-22 c-font-dark">{{ item.case_obj.title }}</a></h3>
-                        </div>
-
-{#                        <div class="col-md-1 col-sm-3 col-xs-6 c-cart-ref">#}
-    {#                        <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">SKU</p>#}
-    {#                        <p>120715</p>#}
-    {#                    </div>#}
-
-                        <div class="col-md-2 col-sm-3 col-xs-6 c-cart-qty">
-                            <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans 'Meter' %}</p>
-                            <div class="c-input-group c-spinner">
-                                <form action="{% url 'cart_add' item.case_obj.id %}" method="post">
-                                    {% csrf_token %}
-                                        <input type="number" class=" form-control no-border" style="width: 50%" name="meter" value="{{ item.meter }}" min="1"><br><br>
-                                        {{ item.case_update_meter_form.inplace }}
-                                        <button type="submit" style="width: 50%; font-size: 0.8em">{% trans 'Update' %}</button>
-                                </form>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-3 col-xs-6 c-cart-price">
-                            <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans 'Each Fee' %}</p>
-                            <p class="c-cart-price c-font-bold">{{ item.case_obj.base_value|intcomma:False|farsi_number }}</p>
+                        <!-- Cart detail >>> delete and update -->
+                        <div class="row g-0 border-top pt--20 mt--20">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-6 text-sm-end">
+                                <button type="submit" class="cart-form__btn">پاک کردن سبد خرید</button>
+                                <button type="submit" class="cart-form__btn">به روز رسانی سبد خرید</button>
+                            </div>
                         </div>
-
-                        <div class="col-md-1 col-sm-3 col-xs-6 c-cart-total">
-                            <p class="c-cart-sub-title c-theme-font c-font-uppercase c-font-bold">{% trans 'Final Fee' %}</p>
-                            <p class="c-cart-price c-font-bold">{{ item.total_price|intcomma:False|farsi_number }}</p>
-                        </div>
-
-                        <div class="col-md-1 col-sm-12 c-cart-remove">
-                            <a href="{% url 'cart_remove' item.case_obj.id %}" class="c-theme-link c-cart-remove-desktop" style="font-size: 0.7em; font-weight: bold; color: red; margin-right: 1em">{% trans 'Remove' %}</a>
-                            <a href="{% url 'cart_remove' item.case_obj.id %}" class="c-cart-remove-mobile btn c-btn c-btn-md c-btn-square c-btn-red c-btn-border-1x c-font-uppercase" style="font-size: 0.7em; font-weight: bold; color: red; margin-right: 1.5em">{% trans 'Remove' %}</a>
-                        </div>
+                        <!-- End: Cart detail >>> delete and update -->
 
                     </div>
-                {% endfor %}
-                <!-- End: Main table of cart detail -->
+                    <div class="col-lg-4">
+                        <div class="cart-collaterals">
+                            <div class="cart-totals">
+                                <h5 class="font-size-14 font-bold mb--15">مجموع سبد خرید</h5>
+                                <div class="cart-calculator">
+                                    <div class="cart-calculator__item">
+                                        <div class="cart-calculator__item--head">
+                                            <span>جمع فرعی</span>
+                                        </div>
+                                        <div class="cart-calculator__item--value">
+                                            <span>196.00 تومان</span>
+                                        </div>
+                                    </div>
+                                    <div class="cart-calculator__item">
+                                        <div class="cart-calculator__item--head">
+                                            <span>فروشگاه</span>
+                                        </div>
+                                        <div class="cart-calculator__item--value">
+                                            <span>نرخ ثابت:
+ 20.00 تومان</span>
+                                            <div class="shipping-calculator-wrap">
+                                                <a href="#shipping_calculator" class="expand-btn">محاسبه حمل و نقل
+                                                </a>
+                                                <form id="shipping_calculator" class="form shipping-calculator-form hide-in-default">
+                                                    <div class="form__group">
+                                                        <select id="calc_shipping_country" name="calc_shipping_country" class="nice-select form__input form__input--select">
+                                                            <option value="">یک کشور را انتخاب کنید…</option>
+                                                            <option value="AF">افغانستان
+                                                            </option>
+                                                            <option value="AL">آلبانی</option>
+                                                            <option value="DZ">الجزایر</option>
+                                                            <option value="AR">آرژانتین</option>
+                                                            <option value="AM">ارمنستان</option>
+                                                            <option value="AU">استرالیا</option>
+                                                            <option value="AT">استرالیا</option>
+                                                            <option value="AZ">آذربایجان</option>
+                                                            <option value="BH">بحرین
+                                                            </option>
+                                                            <option value="BD" selected="selected">بنگلادش</option>
+<!--                                                            <option value="BD">Brazil</option>-->
+<!--                                                            <option value="CN">China</option>-->
+<!--                                                            <option value="EG">Egypt</option>-->
+<!--                                                            <option value="FR">France</option>-->
+<!--                                                            <option value="DE">Germany</option>-->
+<!--                                                            <option value="HK">Hong Kong</option>-->
+<!--                                                            <option value="HU">Hungary</option>-->
+<!--                                                            <option value="IS">Iceland</option>-->
+<!--                                                            <option value="IN">India</option>-->
+<!--                                                            <option value="ID">Indonesia</option>-->
+<!--                                                            <option value="IR">Iran</option>-->
+<!--                                                            <option value="IQ">Iraq</option>-->
+<!--                                                            <option value="IE">Ireland</option>-->
+<!--                                                            <option value="IT">Italy</option>-->
+<!--                                                            <option value="JP">Japan</option>-->
+<!--                                                            <option value="KW">Kuwait</option>-->
+<!--                                                            <option value="MY">Malaysia</option>-->
+<!--                                                            <option value="MV">Maldives</option>-->
+<!--                                                            <option value="MX">Mexico</option>-->
+<!--                                                            <option value="MC">Monaco</option>-->
+<!--                                                            <option value="NP">Nepal</option>-->
+<!--                                                            <option value="RU">Russia</option>-->
+<!--                                                            <option value="KR">South Korea</option>-->
+<!--                                                            <option value="SS">South Sudan</option>-->
+<!--                                                            <option value="ES">Spain</option>-->
+<!--                                                            <option value="LK">Sri Lanka</option>-->
+<!--                                                            <option value="SD">Sudan</option>-->
+<!--                                                            <option value="SZ">Swaziland</option>-->
+<!--                                                            <option value="SE">Sweden</option>-->
+<!--                                                            <option value="CH">Switzerland</option>-->
+<!--                                                            <option value="TN">Tunisia</option>-->
+<!--                                                            <option value="TR">Turkey</option>-->
+<!--                                                            <option value="UA">Ukraine</option>-->
+<!--                                                            <option value="AE">United Arab Emirates</option>-->
+<!--                                                            <option value="GB">United Kingdom (UK)</option>-->
+<!--                                                            <option value="US">United States (US)</option>-->
+                                                        </select>
+                                                    </div>
+                                                    <div class="form__group">
+                                                        <select id="calc_shipping_district" name="calc_shipping_district" class="nice-select form__input form__input--select">
+                                                            <option value="">انتخاب یک منطقه…</option>
+                                                            <option>کرمان</option>
+                                                            <option>اهواز</option>
+                                                            <option>تهران</option>
+                                                            <option>خرمشهر</option>
+                                                            <option>یزد</option>
+                                                            <option>تبریز</option>
+                                                            <option>مشهد</option>
+<!--                                                            <option>COX'S BAZAR</option>-->
+<!--                                                            <option>DHAKA</option>-->
+<!--                                                            <option>FARIDPUR</option>-->
+<!--                                                            <option>FENI</option>-->
+<!--                                                            <option>GAZIPUR</option>-->
+<!--                                                            <option>GOPALGANJ</option>-->
+<!--                                                            <option>JAMALPUR</option>-->
+<!--                                                            <option>KHAGRACHHARI</option>-->
+<!--                                                            <option>KISHOREGONJ</option>-->
+<!--                                                            <option>LAKSHMIPU</option>-->
+<!--                                                            <option>RMADARIPUR</option>-->
+<!--                                                            <option>MUNSHIGANJ</option>-->
+<!--                                                            <option>MYMENSINGH</option>-->
+<!--                                                            <option>NARAYANGANJ</option>-->
+<!--                                                            <option>NARSINGDI</option>-->
+<!--                                                            <option>NETRAKONA</option>-->
+<!--                                                            <option>NOAKHALI</option>-->
+<!--                                                            <option>RANGAMATI </option>-->
+<!--                                                            <option>RAJBARI</option>-->
+<!--                                                            <option>SHARIATPUR</option>-->
+<!--                                                            <option>SHERPUR</option>-->
+<!--                                                            <option>TANGAIL</option>-->
+                                                        </select>
+                                                    </div>
+                                                    <div class="form__group mb--10">
+                                                        <input type="text" name="calc_shipping_city" id="calc_shipping_city" class="form__input" placeholder="استان  / شهر">
+                                                    </div>
 
-                <!-- Total price -->
-                <div class="row">
-                    <div class="c-cart-subtotal-row c-margin-t-20" style="">
-                        <div class="col-md-2 col-md-offset-9 col-sm-6 col-xs-6 c-cart-subtotal-border" style="">
-                            <h3 class="c-font-uppercase c-font-bold c-right c-font-16 c-font-grey-2">{% trans 'Final Value (Tooman)' %}:</h3>
-                        </div>
-                        <div class="col-md-1 col-sm-6 col-xs-6 c-cart-subtotal-border" style="">
-                            <h3 class="c-font-bold c-font-16">{{ cart.total_value|intcomma:False|farsi_number }}</h3>
+                                                    <div class="form__group mb--10">
+                                                        <input type="text" name="calc_shipping_zip" id="calc_shipping_zip" class="form__input" placeholder="کد پستی / پستی
+">
+                                                    </div>
+
+                                                    <div class="form__group">
+                                                        <input type="submit" value="به روز رسانی مجموع" class="btn btn-size-sm">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-calculator__item order-total">
+                                        <div class="cart-calculator__item--head">
+                                            <span>جمع</span>
+                                        </div>
+                                        <div class="cart-calculator__item--value">
+                                                <span class="product-price-wrapper">
+                                                    <span class="money">226.00 تومان</span>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="checkout.html" class="btn btn-size-md btn-shape-square btn-fullwidth">
+                                به پرداخت ادامه دهید
+                            </a>
                         </div>
                     </div>
                 </div>
-                <!-- End: Total price -->
-
-                <div class="c-cart-buttons">
-{#                    <a href="#" class="btn c-btn btn-lg c-btn-red c-btn-square c-font-white c-font-bold c-font-uppercase c-cart-float-l">Continue Shopping</a>#}
-                    <a href="{% url 'case_list' %}" class="btn c-btn btn-lg c-theme-btn c-btn-square c-font-white c-font-bold c-font-uppercase c-cart-float-r">{% trans 'Payment' %}</a>
-                </div>
-
-
             </div>
         </div>
     </div>
-    <!-- End: Cart detail -->
+    <!-- End:  Cart detail -->
 
 
 {% endblock %}

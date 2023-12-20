@@ -58,7 +58,7 @@
                         <div class="product-summary pl-lg--30 pl-md--0">
 
                             <!-- Case detail >>> data -->
-                            <h1 class="product-title mb--70" style="font-size: 40">{{ case.title|farsi_number }}</h1>
+                            <h1 class="product-title mb--70" style="font-weight: bolder">{{ case.title|farsi_number }}</h1>
                             <div class="product-price-wrapper mb--25">
                                 <span class="money" style="font-size: 1.3em">{% trans 'Min of investment' %}: {{ case.base_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</span>
                             </div>
@@ -99,15 +99,15 @@
                                     <form action="{% url 'cart_add' case.id %}" method="post">
                                         {% csrf_token %}
                                         <label class="quantity-label" style="margin-bottom: 1em; font-size: 1em" for="{{ add_to_cart_form.meter.id_for_label }}">متراژ انتخابی:</label>
-                                        <div class="quantity">
+                                        <div style="border: #373737 0.05em solid; line-height: 1.7em">
                                             {% render_field add_to_cart_form.meter class="quantity-input" type="number" value="1" min="1" %}
 {#                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">#}
                                         </div>
+                                        <button type="submit" class="btn btn-shape-square btn-size-sm" style="margin-top: 1.75em">
+                                            افزودن به سبد خرید
+                                        </button>
                                     </form>
                                 </div>
-                                <button type="button" class="btn btn-shape-square btn-size-sm" style="margin-top: 1.75em" onclick="window.location.href='cart.html'">
-                                    افزودن به سبد خرید
-                                </button>
                             </div>
 
                             <!-- End: Case detail >>> tags -->
