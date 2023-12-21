@@ -1,20 +1,6 @@
 {% load i18n %}
 {% load static %}
 
-    <meta charset="utf-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<meta content="" name="description"/>
-	<meta content="" name="author"/>
-
-    <!-- ************************* Favicons ************************* -->
-    <link rel="shortcut icon" href="{% static 'assets/fav/favicon.ico' %}"/>
-
-    <!-- ************************* CSS Files ************************* -->
-	<link href="{% static 'assets/plugins/socicon/socicon.css' %}" type="text/css"/>
-
-    <title>{% block title %}{% endblock %}</title>
 
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -41,9 +27,12 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <!-- ************************* CSS Files ************************* -->
 
+    <title>{% block title %}{% endblock %}</title>
+
 </head>
 
 <body>
+
 
     <!-- Preloader Start -->
     <div class="ft-preloader active">
@@ -201,6 +190,16 @@
             </div>
         </header>
         <!-- Header End -->
+
+        <div class="main-content-wrapper">
+            {% if messages %}
+                <ul style="text-align: center; margin-top: 3em;">
+                    {% for message in messages %}
+                        <h2 style="color: #7a2727; font-weight: bolder">{{ message }}</h2>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
 
         {% block content %}
         {% endblock %}

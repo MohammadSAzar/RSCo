@@ -50,6 +50,11 @@ class Cart:
         # cases = Case.objects.filter(id__in=case_ids)
         return sum(item['meter'] * item['case_obj'].base_value for item in self.cart.values())
 
+    def total_value_plus_tax(self):
+        # case_ids = self.cart.keys()
+        # cases = Case.objects.filter(id__in=case_ids)
+        return sum(int(item['meter'] * item['case_obj'].base_value * 1.09) for item in self.cart.values())
+
     def is_empty(self):
         if self.cart:
             return False

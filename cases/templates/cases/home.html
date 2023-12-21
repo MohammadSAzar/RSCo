@@ -160,7 +160,7 @@
                             <div class="pagination-wrap">
                                 <ul class="pagination" style="direction: rtl">
                                     {% if page_obj.has_previous %}
-                                        <li><a href="?page=1" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">&laquo; {% trans 'First' %}</a></li>
+                                        <li><a href="?page=1" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">&laquo; {% trans 'The First' %}</a></li>
                                         <li><a href="?page={{ page_obj.previous_page_number }}" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">{% trans 'Previous' %}</a></li>
                                     {% endif %}
 
@@ -168,7 +168,7 @@
 
                                     {% if page_obj.has_next %}
                                         <li><a href="?page={{ page_obj.next_page_number }}" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">{% trans 'Next' %}</a></li>
-                                        <li><a href="?page={{ page_obj.paginator.num_pages }}" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">{% trans 'Last' %} &raquo;</a></li>
+                                        <li><a href="?page={{ page_obj.paginator.num_pages }}" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">{% trans 'The Last' %} &raquo;</a></li>
                                     {% endif %}
                                 </ul>
                             </div>

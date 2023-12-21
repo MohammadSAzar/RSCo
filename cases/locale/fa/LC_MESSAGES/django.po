@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 18:03+0330\n"
+"POT-Creation-Date: 2023-12-21 19:43+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,8 +34,8 @@ msgstr "خاتمه یافته"
 msgid "Title"
 msgstr "پروژه"
 
-#: .\models.py:16 .\templates\cases\case_detail.html:61
-#: .\templates\cases\home.html:127 .\templates\cases\home.html:352
+#: .\models.py:16 .\templates\cases\case_detail.html:66
+#: .\templates\cases\case_detail.html:82 .\templates\cases\home.html:130
 msgid "Maker"
 msgstr "سازنده"
 
@@ -51,13 +51,13 @@ msgstr "منطقه"
 msgid "Capacity"
 msgstr "ظرفیت"
 
-#: .\models.py:20 .\templates\cases\case_detail.html:58
-#: .\templates\cases\home.html:137 .\templates\cases\home.html:354
+#: .\models.py:20 .\templates\cases\case_detail.html:63
+#: .\templates\cases\home.html:140
 msgid "Min of investment"
 msgstr "حداقل خرید"
 
-#: .\models.py:21 .\templates\cases\case_detail.html:68
-#: .\templates\cases\case_detail.html:72
+#: .\models.py:21 .\templates\cases\case_detail.html:73
+#: .\templates\cases\case_detail.html:77
 msgid "Buy assurance"
 msgstr "ضمانت خرید"
 
@@ -65,19 +65,16 @@ msgstr "ضمانت خرید"
 msgid "Guaranteed gain"
 msgstr "سود تضمینی"
 
-#: .\models.py:23 .\templates\cases\case_detail.html:78
-#: .\templates\cases\case_detail.html:82 .\templates\cases\home.html:130
-#: .\templates\cases\home.html:132 .\templates\cases\home.html:356
-#: .\templates\cases\home.html:358
+#: .\models.py:23 .\templates\cases\case_detail.html:86
+#: .\templates\cases\home.html:133 .\templates\cases\home.html:135
 msgid "Guaranteed gain percent"
 msgstr "درصد سود تضمینی"
 
-#: .\models.py:24 .\templates\cases\case_detail.html:87
-#: .\templates\cases\home.html:360
+#: .\models.py:24 .\templates\cases\case_detail.html:90
 msgid "End time"
 msgstr "تاریخ اتمام پروژه"
 
-#: .\models.py:25
+#: .\models.py:25 .\templates\cases\case_detail.html:135
 msgid "Description"
 msgstr "توضیحات"
 
@@ -146,98 +143,135 @@ msgid "Area"
 msgstr ""
 
 #: .\models.py:68
-#, fuzzy
-#| msgid "Base value"
 msgid "Base value"
 msgstr "قیمت پایه"
 
-#: .\templates\cases\cart_detail.html:17
-#, fuzzy
-#| msgid "Details of the project"
-msgid "Details of the cart"
-msgstr "جزئیات سبد خرید"
-
-#: .\templates\cases\cart_detail.html:34
-msgid "Row"
-msgstr "ردیف"
-
-#: .\templates\cases\cart_detail.html:38
+#: .\templates\cases\cart_detail.html:41
 msgid "Case"
 msgstr "پروژه"
 
-#: .\templates\cases\cart_detail.html:46 .\templates\cases\cart_detail.html:80
-msgid "Meter"
-msgstr "متراژ"
-
-#: .\templates\cases\cart_detail.html:50 .\templates\cases\cart_detail.html:92
+#: .\templates\cases\cart_detail.html:42
 msgid "Each Fee"
 msgstr "قیمت"
 
-#: .\templates\cases\cart_detail.html:54 .\templates\cases\cart_detail.html:97
+#: .\templates\cases\cart_detail.html:43
+msgid "Meter"
+msgstr "متراژ"
+
+#: .\templates\cases\cart_detail.html:44
 msgid "Final Fee"
 msgstr "قیمت کل"
 
-#: .\templates\cases\cart_detail.html:86
-msgid "Update"
-msgstr "بروزرساتی"
-
-#: .\templates\cases\cart_detail.html:102
-#: .\templates\cases\cart_detail.html:103
-msgid "Remove"
-msgstr "حذف"
-
-#: .\templates\cases\cart_detail.html:114
-msgid "Final Value (Tooman)"
-msgstr "قیمت نهایی (تومان)"
-
-#: .\templates\cases\cart_detail.html:125
-#, fuzzy
-#| msgid "Payment Status"
-msgid "Payment"
-msgstr "پرداخت"
-
-#: .\templates\cases\case_detail.html:16
-msgid "Details of the project"
-msgstr "جزئیات پروژه"
-
-#: .\templates\cases\case_detail.html:58 .\templates\cases\home.html:137
-#: .\templates\cases\home.html:354
+#: .\templates\cases\cart_detail.html:57 .\templates\cases\cart_detail.html:107
+#: .\templates\cases\cart_detail.html:117 .\templates\cases\case_detail.html:63
+#: .\templates\cases\home.html:140
 msgid "tooman"
 msgstr "تومان"
 
-#: .\templates\cases\case_detail.html:64 .\templates\cases\home.html:128
-#: .\templates\cases\home.html:353
+#: .\templates\cases\cart_detail.html:64
+msgid "Update"
+msgstr "بروزرسانی"
+
+#: .\templates\cases\cart_detail.html:88
+msgid "Clear Cart"
+msgstr "خالی کردن سبد خرید"
+
+#: .\templates\cases\cart_detail.html:100
+msgid "Cart Summary"
+msgstr "خلاصه سبد خرید"
+
+#: .\templates\cases\cart_detail.html:104
+msgid "Cart Sum"
+msgstr "جمع سبد"
+
+#: .\templates\cases\cart_detail.html:113
+msgid "Cart Sum plus Tax"
+msgstr "مبلغ نهایی (+ مالیات)"
+
+#: .\templates\cases\cart_empty.html:6
+msgid "Empty Cart"
+msgstr "سبد خالی"
+
+#: .\templates\cases\cart_empty.html:16
+msgid "If you want to see our cases, click on below button"
+msgstr "برای دیدن پروژه‌ها، کلیک کنید"
+
+#: .\templates\cases\cart_empty.html:17
+msgid "See Cases"
+msgstr "پروژه"
+
+#: .\templates\cases\case_detail.html:17
+msgid "Details of the project"
+msgstr "جزئیات پروژه"
+
+#: .\templates\cases\case_detail.html:69 .\templates\cases\home.html:131
 msgid "Position"
 msgstr "موقعیت"
 
-#: .\templates\cases\case_detail.html:68
+#: .\templates\cases\case_detail.html:73
 msgid "have"
 msgstr "دارد"
 
-#: .\templates\cases\case_detail.html:72 .\templates\cases\case_detail.html:82
-#: .\templates\cases\home.html:132 .\templates\cases\home.html:358
+#: .\templates\cases\case_detail.html:77 .\templates\cases\case_detail.html:86
+#: .\templates\cases\home.html:135
 msgid "do not have"
 msgstr "ندارد"
 
-#: .\templates\cases\case_detail.html:127
-msgid "Description of the project"
-msgstr "توضیحات پروژه"
+#: .\templates\cases\case_detail.html:138
+msgid "Extra Data"
+msgstr "اطلاعات تکمیلی"
 
-#: .\templates\cases\home.html:319
+#: .\templates\cases\home.html:67
 msgid "Opportunities for Investment"
 msgstr "فرصت‌های سرمایه‌گذاری"
 
-#: .\templates\cases\home.html:321
-msgid "You can choose your project here to invest!"
-msgstr "اینجا می‌توانید پروژه مورد نظر خود را انتخاب کنید"
-
-#: .\templates\cases\home.html:367
+#: .\templates\cases\home.html:145
 msgid "See Project"
 msgstr "مشاهده پروژه"
 
-#: .\templates\cases\home.html:370
-msgid "Add to List"
-msgstr "افزودن به لیست"
+#: .\templates\cases\home.html:163
+msgid "The First"
+msgstr "ابتدا"
+
+#: .\templates\cases\home.html:164
+msgid "Previous"
+msgstr "قبلی"
+
+#: .\templates\cases\home.html:170
+msgid "Next"
+msgstr "بعدی"
+
+#: .\templates\cases\home.html:171
+msgid "The Last"
+msgstr "انتها"
+
+#, fuzzy
+#~| msgid "Details of the project"
+#~ msgid "Details of the cart"
+#~ msgstr "جزئیات سبد خرید"
+
+#~ msgid "Row"
+#~ msgstr "ردیف"
+
+#~ msgid "Remove"
+#~ msgstr "حذف"
+
+#~ msgid "Final Value (Tooman)"
+#~ msgstr "قیمت نهایی (تومان)"
+
+#, fuzzy
+#~| msgid "Payment Status"
+#~ msgid "Payment"
+#~ msgstr "پرداخت"
+
+#~ msgid "Description of the project"
+#~ msgstr "توضیحات پروژه"
+
+#~ msgid "You can choose your project here to invest!"
+#~ msgstr "اینجا می‌توانید پروژه مورد نظر خود را انتخاب کنید"
+
+#~ msgid "Add to List"
+#~ msgstr "افزودن به لیست"
 
 #~ msgid "The greatest opportunities"
 #~ msgstr "مطمئن‌ترین فرصت‌های سرمایه‌گذاری"

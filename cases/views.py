@@ -63,7 +63,10 @@ def cart_clear(request):
         messages.success(request, 'سبد با موفقیت خالی شد')
     else:
         messages.warning(request, 'سبد شما خالی است')
-    return redirect('case_list')
+    return redirect('cart_empty')
+
+def cart_empty_view(request):
+    return render(request, 'cases/cart_empty.html')
 
 
 # Order Views
