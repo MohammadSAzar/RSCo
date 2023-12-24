@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 19:43+0330\n"
+"POT-Creation-Date: 2023-12-24 23:56+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,23 +94,23 @@ msgstr "زمان انتشار"
 msgid "User"
 msgstr "کاربر"
 
-#: .\models.py:48
+#: .\models.py:48 .\templates\cases\order_create.html:47
 msgid "First Name"
 msgstr "نام"
 
-#: .\models.py:49
+#: .\models.py:49 .\templates\cases\order_create.html:51
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
-#: .\models.py:50
+#: .\models.py:50 .\templates\cases\order_create.html:57
 msgid "Phone Number"
 msgstr "تلفن همراه"
 
-#: .\models.py:51
+#: .\models.py:51 .\templates\cases\order_create.html:63
 msgid "National Code"
 msgstr "کد ملی"
 
-#: .\models.py:52
+#: .\models.py:52 .\templates\cases\order_create.html:75
 msgid "Address"
 msgstr "نشانی"
 
@@ -118,7 +118,7 @@ msgstr "نشانی"
 msgid "Payment Status"
 msgstr "وضعیت پرداخت"
 
-#: .\models.py:54
+#: .\models.py:54 .\templates\cases\order_create.html:81
 msgid "Notes"
 msgstr "یادداشت"
 
@@ -147,6 +147,7 @@ msgid "Base value"
 msgstr "قیمت پایه"
 
 #: .\templates\cases\cart_detail.html:41
+#: .\templates\cases\order_create.html:102
 msgid "Case"
 msgstr "پروژه"
 
@@ -159,12 +160,15 @@ msgid "Meter"
 msgstr "متراژ"
 
 #: .\templates\cases\cart_detail.html:44
+#: .\templates\cases\order_create.html:103
 msgid "Final Fee"
 msgstr "قیمت کل"
 
-#: .\templates\cases\cart_detail.html:57 .\templates\cases\cart_detail.html:107
-#: .\templates\cases\cart_detail.html:117 .\templates\cases\case_detail.html:63
-#: .\templates\cases\home.html:140
+#: .\templates\cases\cart_detail.html:57 .\templates\cases\cart_detail.html:101
+#: .\templates\cases\case_detail.html:63 .\templates\cases\home.html:140
+#: .\templates\cases\order_create.html:111
+#: .\templates\cases\order_create.html:120
+#: .\templates\cases\order_create.html:125
 msgid "tooman"
 msgstr "تومان"
 
@@ -177,16 +181,13 @@ msgid "Clear Cart"
 msgstr "خالی کردن سبد خرید"
 
 #: .\templates\cases\cart_detail.html:100
-msgid "Cart Summary"
-msgstr "خلاصه سبد خرید"
-
-#: .\templates\cases\cart_detail.html:104
+#: .\templates\cases\order_create.html:118
 msgid "Cart Sum"
 msgstr "جمع سبد"
 
-#: .\templates\cases\cart_detail.html:113
-msgid "Cart Sum plus Tax"
-msgstr "مبلغ نهایی (+ مالیات)"
+#: .\templates\cases\cart_detail.html:103
+msgid "Proceed to Payment"
+msgstr "تکمیل خرید"
 
 #: .\templates\cases\cart_empty.html:6
 msgid "Empty Cart"
@@ -244,6 +245,26 @@ msgstr "بعدی"
 #: .\templates\cases\home.html:171
 msgid "The Last"
 msgstr "انتها"
+
+#: .\templates\cases\order_create.html:19
+#: .\templates\cases\order_create.html:85
+msgid "Finalize Order"
+msgstr "ثبت سفارش"
+
+#: .\templates\cases\order_create.html:34
+msgid "Order Information"
+msgstr "اطلاعات سفارش"
+
+#: .\templates\cases\order_create.html:95
+msgid "Order Detail"
+msgstr "جزئیات سفارش"
+
+#: .\templates\cases\order_create.html:124
+msgid "Cart Sum plus Tax"
+msgstr "مبلغ نهایی (+ مالیات)"
+
+#~ msgid "Cart Summary"
+#~ msgstr "خلاصه سبد خرید"
 
 #, fuzzy
 #~| msgid "Details of the project"

@@ -10,7 +10,7 @@ urlpatterns = [
     path('cart/detail/', views.cart_detail_view, name='cart_detail'),
     path('cart/empty/', views.cart_empty_view, name='cart_empty'),
     path('clear/', views.cart_clear, name='cart_clear'),
-    path('create/', views.order_create_view, name='order_create'),
+    path('order/create/', views.order_create_view, name='order_create'),
     re_path(r'^case/(?P<slug>[-\w]+)/', views.CaseDetailView.as_view(), name='case_detail'),
 ]
 

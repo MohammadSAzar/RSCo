@@ -1,28 +1,144 @@
 {% extends '_base.html' %}
 {% load i18n %}
+{% load static %}
 {% load farsi_numbers_tags %}
 {% load humanize %}
 {% load math_functions %}
+{% load widget_tweaks %}
 
 
 {% block title %}سفارش{% endblock %}
 
 {% block content %}
 
-    <form action="" method="POST" novalidate>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">ارسال</button>
-    </form>
+    <!-- Order >>> banner -->
+    <section class="page-title-area bg-image ptb--80" data-bg-image="{% static 'img/bg/page_title_bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">{% trans 'Finalize Order' %}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End: Order >>> banner -->
 
-    {% for item in cart %}
-        {{ item.case_obj.title }}
-        {{ item.meter|intcomma:False|farsi_number }}
-        {{ item.case_obj.base_value|mul_func:item.meter|intcomma:False|farsi_number }}
-    {% endfor %}
+    <!-- Order detail -->
+    <div class="main-content-wrapper">
+        <div class="page-content-inner pt--80 pt-md--60 pb--72 pb-md--60">
+            <div class="container">
 
-    <p>مجموع</p>
-    {{ cart.total_value|intcomma:False|farsi_number }}
+                <div class="row">
+                    <!-- Order detail >>> form -->
+                    <div class="col-lg-6">
+                        <div class="checkout-title mt--10"><h2>{% trans 'Order Information' %}</h2></div>
+                        <div class="checkout-form">
+                            <form action="" method="POST" novalidate class="form form--checkout">
+                                {% csrf_token %}
+                                {% if form.errors %}
+                                    {% for field in form %}
+                                            {% for error in field.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        {% endfor %}
+                                {% endif %}
+                                <div class="row mb--20">
+                                    <div class="form__group col-md-6 mb-sm--30">
+                                        <label for="{{ form.first_name.id_for_label }}" class="form__label">{% trans 'First Name' %}<span class="required">*</span></label>
+                                        {% render_field form.first_name class="form__input" placeholder="نام خود را وارد کنید ..." %}
+                                    </div>
+                                    <div class="form__group col-md-6">
+                                        <label for="{{ form.last_name.id_for_label }}" class="form__label">{% trans 'Last Name' %}<span class="required">*</span></label>
+                                        {% render_field form.last_name class="form__input" placeholder="نام خانوادگی خود را وارد کنید ..." %}
+                                    </div>
+                                </div>
+                                <div class="row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="{{ form.phone.id_for_label }}" class="form__label">{% trans 'Phone Number' %}<span class="required">*</span></label>
+                                        {% render_field form.phone class="form__input" placeholder="تلفن خود را وارد کنید ..." %}
+                                    </div>
+                                </div>
+                                <div class="row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="{{ form.national_code.id_for_label }}" class="form__label">{% trans 'National Code' %}<span class="required">*</span></label>
+                                        {% render_field form.national_code class="form__input" placeholder="کد ملی خود را وارد کنید ..." %}
+                                    </div>
+                                </div>
+                                <div class="row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="billing_email" class="form__label">آدرس ایمیل  <span class="required">*</span></label>
+                                        <input type="email" name="billing_email" id="billing_email" class="form__input">
+                                    </div>
+                                </div>
+                                <div class="row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="{{ form.address.id_for_label }}" class="form__label">{% trans 'Address' %}</label>
+                                        {% render_field form.address class="form__input form__input--textarea" placeholder="آدرس خود را وارد کنید ..." %}
+                                    </div>
+                                </div>
+                                <div class="row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="{{ form.notes.id_for_label }}" class="form__label">{% trans 'Notes' %}</label>
+                                        {% render_field form.notes class="form__input form__input--textarea" placeholder="توضیحات خود را وارد کنید ..." %}
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-size-md btn-fullwidth" style="background-color: #ff5151; border-radius: 0.35em; border: none;!important; box-shadow: none; color: white;">{% trans 'Finalize Order' %}</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- End: Order detail >>> form -->
+
+                    <!-- Order detail >>> final data -->
+                    <div class="col-xl-5 offset-xl-1 col-lg-6 mt-md--40">
+                        <div class="order-details">
+                            <div class="checkout-title mt--10">
+                                <h2>{% trans 'Order Detail' %}</h2>
+                            </div>
+                            <div class="table-content table-responsive mb--30">
+                                <table class="table order-table order-table-2">
+
+                                    <thead>
+                                        <tr>
+                                            <th style="font-size: 1.2em">{% trans 'Case' %}</th>
+                                            <th style="font-size: 1.2em" class="text-right">{% trans 'Final Fee' %}</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for item in cart %}
+                                            <tr>
+                                                <th><a href="{{ item.case_obj.get_absolute_url }}" style="font-size: 1em">{{ item.case_obj.title|farsi_number }}</a>: {{ item.meter|intcomma:False|farsi_number }} متر</th>
+                                                <td class="text-right"><span style="font-size: 1em">{{ item.case_obj.base_value|mul_func:item.meter|intcomma:False|farsi_number }} {% trans 'tooman' %}</span></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+
+                                    <tfoot>
+                                        <tr class="shipping">
+                                            <th><span style="color: #4cae4c; font-size: 1.2em">{% trans 'Cart Sum' %}</span></th>
+                                            <td class="text-right">
+                                                <span style="color: #4cae4c; font-size: 1em">{{ cart.total_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th><span style="color: #4cae4c; font-size: 1.2em">{% trans 'Cart Sum plus Tax' %}</span></th>
+                                            <td class="text-right"><span style="color: #4cae4c; font-size: 1em" class="order-total-ammount">{{ cart.total_value_plus_tax|intcomma:False|farsi_number }} {% trans 'tooman' %}</span></td>
+                                        </tr>
+                                    </tfoot>
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End: Order detail >>> final data -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End: Order detail -->
+
 
 {% endblock %}
 

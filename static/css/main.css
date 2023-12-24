@@ -3644,6 +3644,7 @@ font-family: FontAwesome;
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
+    align-items: center;
     flex-basis: 100%;
     max-width: 100%; } }
 .cart-calculator__item--value > span,
@@ -3651,6 +3652,7 @@ font-family: FontAwesome;
   margin-bottom: 5px; }
 
 .cart-calculator__item.order-total > div {
+  align-items: center;
   padding-top: 15px; }
 
 /*****************************

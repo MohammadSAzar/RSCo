@@ -97,32 +97,10 @@
                     <div class="col-lg-4">
                         <div class="cart-collaterals">
                             <div class="cart-totals">
-                                <h3 class="font-size-14 font-bold mb--15" style="text-align: center; font-size: 1.5em; margin-bottom: 40px;">{% trans 'Cart Summary' %}</h3>
-                                <div class="cart-calculator">
-                                    <div class="cart-calculator__item">
-                                        <div class="cart-calculator__item--head">
-                                            <span>{% trans 'Cart Sum' %}</span>
-                                        </div>
-                                        <div class="cart-calculator__item--value">
-                                            <span>{{ cart.total_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="cart-calculator__item order-total">
-                                        <div class="cart-calculator__item--head">
-                                            <span>{% trans 'Cart Sum plus Tax' %}</span>
-                                        </div>
-                                        <div class="cart-calculator__item--value">
-                                                <span class="product-price-wrapper">
-                                                    <span class="money">{{ cart.total_value_plus_tax|intcomma:False|farsi_number }} {% trans 'tooman' %}</span>
-                                                </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h3 class="font-size-14 font-bold mb--15" style="text-align: center; font-size: 1.5em; margin-bottom: 40px;">{% trans 'Cart Sum' %}</h3>
+                                <h3 class="font-size-14 font-bold mb--15" style="text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 40px; color: #ff5151">{{ cart.total_value|intcomma:False|farsi_number }} {% trans 'tooman' %}</h3>
                             </div>
-                            <a href="checkout.html" class="btn btn-size-md btn-shape-square btn-fullwidth">
-                                به پرداخت ادامه دهید
-                            </a>
+                            <a href="{% url 'order_create' %}" class="btn btn-size-md btn-shape-square btn-fullwidth">{% trans 'Proceed to Payment' %}</a>
                         </div>
                     </div>
                     <!-- end: Cart detail >>> total things -->
