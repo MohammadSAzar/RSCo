@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext as _
 from django.conf import settings
+from ckeditor.fields import RichTextField
 
 
 class Case(models.Model):
@@ -22,7 +23,7 @@ class Case(models.Model):
     guaranteed_gain = models.BooleanField(default=False, verbose_name=_('Guaranteed gain'))
     guaranteed_gain_percent = models.PositiveIntegerField(verbose_name=_('Guaranteed gain percent'))
     end_time = models.CharField(max_length=200, verbose_name=_('End time'))
-    description = models.TextField(max_length=500, verbose_name=_('Description'))
+    description = RichTextField(verbose_name=_('Description'))
     status = models.CharField(max_length=10, choices=STATUS, verbose_name=_('Status'))
     cover = models.ImageField(upload_to='cases/', blank=True, verbose_name=_('Cover'))
     slug = models.SlugField(max_length=250, null=True, blank=True, unique=True, allow_unicode=True)
