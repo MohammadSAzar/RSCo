@@ -1,1 +1,79 @@
-ASS
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load farsi_numbers_tags %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans 'Blog' %}{% endblock %}
+
+{% block content %}
+
+     <!-- Case detail >>> top ribbon -->
+    <section class="page-title-area bg-image ptb--80" data-bg-image="{% static 'img/bg/page_title_bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">{% trans 'Blog' %}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End: Case detail >>> top ribbon -->
+
+     <!-- Blog list -->
+    <main class="main-content-wrapper">
+        <div class="inner-page-content ptb--80 ptb-md--60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+
+                            {% for post in blog %}
+                                <div class="col-lg-6 mb--50">
+                                    <article class="blog format-standard">
+                                        <div class="blog__inner">
+                                            <div class="blog__media">
+                                                <figure class="image">
+                                                    <a href="{{ post.get_absolute_url }}"><img src="{{ post.cover.url }}" alt="Blog Image" class="w-100"></a>
+                                                </figure>
+                                            </div>
+                                            <div class="blog__info">
+                                                <h2 class="blog__title" style="color: black; font-size: 1.2em"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                                                <div class="blog__meta">
+                                                    <span class="posted-on">{% trans 'Group' %}: {{ post.blog_category }}</span>
+                                                </div>
+                                                <div class="blog__meta">
+                                                    <span class="posted-on">{{ post.date_time_creation }} | </span>
+                                                    <span class="posted-by"><span>{% trans 'Writer' %}:</span>{{ post.author }}</span>
+                                                </div>
+                                                <div class="blog__desc"></div>
+                                                <a href="{{ post.get_absolute_url }}" class="read-more-btn">{% trans 'More' %}</a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <ul class="pagination" style="direction: rtl">
+                                    <li><span class="page-number current">1</span></li>
+                                    <li><a href="#" class="page-number">2</a></li>
+                                    <li><span class="dot"></span></li>
+                                    <li><span class="dot"></span></li>
+                                    <li><span class="dot"></span></li>
+                                    <li><a href="#" class="page-number">16</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- end: Blog list -->
+
+
+{% endblock %}

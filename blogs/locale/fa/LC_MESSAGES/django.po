@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-06 20:47+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\models.py:22
+msgid "Blog Cover"
+msgstr "تصویر مقاله"
+
+#: .\models.py:23
+msgid "Blog Category"
+msgstr "دسته مقاله"
+
+#: .\models.py:24
+msgid "Blog Title"
+msgstr "عنوان مقاله"
+
+#: .\models.py:25
+msgid "Blog Body"
+msgstr "متن مقاله"
+
+#: .\models.py:26
+msgid "Datetime of Creation"
+msgstr "زمان انتشار"
+
+#: .\models.py:27
+msgid "Datetime of Modification"
+msgstr "زمان بازبینی"
+
+#: .\models.py:28
+msgid "Blog Status"
+msgstr "وضعیت مقاله"
+
+#: .\models.py:30
+msgid "Blog Author"
+msgstr "نویسنده مقاله"
+
+#: .\templates\blogs\blog_list.html:8 .\templates\blogs\blog_list.html:17
+msgid "Blog"
+msgstr "بلاگ"
+
+#: .\templates\blogs\blog_list.html:44
+msgid "Group"
+msgstr "دسته‌بندی"
+
+#: .\templates\blogs\blog_list.html:48
+msgid "Writer"
+msgstr "نویسنده"
+
+#: .\templates\blogs\blog_list.html:51
+msgid "More"
+msgstr "مطالعه بیشتر"
