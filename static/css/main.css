@@ -1019,7 +1019,7 @@ font-family: FontAwesome;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1; }
 .page-title-area-2 {
-  height: 60rem; }
+  height: 40rem; }
 .page-title-area * {
   z-index: 4; }
 @media (max-width: 47.94em) {

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     'ckeditor',
+    'ckeditor_uploader',
     'jalali_date',
     'widget_tweaks',
 
@@ -138,6 +139,7 @@ LOCALE_PATHS = (
     # os.path.join(BASE_DIR, 'mysite', 'locale'),
 )
 
+
 # Static & Media
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -145,3 +147,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+
+
+# CKEditor
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+

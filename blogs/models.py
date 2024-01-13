@@ -4,6 +4,8 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext as _
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 
 class BlogCategory(models.Model):
     name = models.CharField(max_length=255)
@@ -22,7 +24,7 @@ class Blog(models.Model):
     cover = models.ImageField(upload_to='blogs/', verbose_name=_('Blog Cover'))
     blog_category = models.ForeignKey(BlogCategory, on_delete=models.PROTECT, related_name='posts', verbose_name=_('Blog Category'))
     title = models.CharField(max_length=200, verbose_name=_('Blog Title'))
-    body = RichTextField(verbose_name=_('Blog Body'))
+    body = RichTextUploadingField(verbose_name=_('Blog Body'))
     date_time_creation = models.DateTimeField(auto_now_add=True, verbose_name=_('Datetime of Creation'))
     date_time_modification = models.DateTimeField(auto_now=True, verbose_name=_('Datetime of Modification'))
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, verbose_name=_('Blog Status'))
