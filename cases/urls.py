@@ -1,6 +1,7 @@
 from django.urls import path, re_path, include
 
 from . import views
+# from blogs.views import HomeBlogListView
 
 
 urlpatterns = [

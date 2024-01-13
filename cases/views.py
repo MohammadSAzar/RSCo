@@ -6,12 +6,27 @@ from django.views.generic import ListView, DetailView
 from .models import Case, Order, OrderItem
 from .forms import AddToCart, OrderForm
 from .cart import Cart
+from blogs.models import Blog
+
 
 class CaseListView(ListView):
     queryset = Case.objects.filter(status='a')
-    paginate_by = 4
     context_object_name = 'cases'
     template_name = 'cases/home.html'
+    paginate_by = 4
+
+    def get_context_data(self):
+        context = super(CaseListView, self).get_context_data()
+        context['blogs'] = Blog.objects.filter(status='pub').order_by('-date_time_creation')[:3]
+        return context
+
+
+# class CaseListView(ListView):
+#     model = Case
+#     queryset = Case.objects.filter(status='a')
+#     paginate_by = 8
+#     context_object_name = 'cases'
+#     template_name = 'cases/home.html'
 
 
 class CaseDetailView(DetailView):

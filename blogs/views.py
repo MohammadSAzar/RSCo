@@ -16,4 +16,10 @@ class BlogDetailView(DetailView):
     template_name = 'blogs/blog_detail.html'
     context_object_name = 'blog'
 
+# class HomeBlogListView(ListView):
+#     queryset = Blog.objects.filter(status='a')
+#     paginate_by = 3
+#     context_object_name = 'blogs'
+#     template_name = 'cases/home.html'
+
 

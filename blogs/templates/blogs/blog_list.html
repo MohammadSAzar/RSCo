@@ -39,7 +39,7 @@
                                                 </figure>
                                             </div>
                                             <div class="blog__info">
-                                                <h2 class="blog__title" style="color: black; font-size: 1.2em"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                                                <h2 class="blog__title" style="color: black; font-size: 1.2em"><a href="{{ post.get_absolute_url }}">{{ post.title|farsi_number }}</a></h2>
                                                 <div class="blog__meta">
                                                     <span class="posted-on">{% trans 'Group' %}: {{ post.blog_category }}</span>
                                                 </div>
@@ -56,18 +56,25 @@
                             {% endfor %}
 
                         </div>
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <ul class="pagination" style="direction: rtl">
-                                    <li><span class="page-number current">1</span></li>
-                                    <li><a href="#" class="page-number">2</a></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><span class="dot"></span></li>
-                                    <li><a href="#" class="page-number">16</a></li>
-                                </ul>
-                            </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination-wrap">
+                            <ul class="pagination" style="direction: rtl">
+                                {% if page_obj.has_previous %}
+                                    <li><a href="?page=1" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">&laquo; {% trans 'The First' %}</a></li>
+                                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">{% trans 'Previous' %}</a></li>
+                                {% endif %}
+
+                                <li style="width: 3em; text-align: center; line-height: 2.5em"><span style="color: #373737; border-radius: 0.5em;">{{ page_obj.number|farsi_number }} از {{ page_obj.paginator.num_pages|farsi_number }}</span></li>
+
+                                {% if page_obj.has_next %}
+                                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">{% trans 'Next' %}</a></li>
+                                    <li><a href="?page={{ page_obj.paginator.num_pages }}" class="page-number" style="width: 5em; background-color: #ff5151; color: #ffffff; border-radius: 0.5em;">{% trans 'The Last' %} &raquo;</a></li>
+                                {% endif %}
+                            </ul>
                         </div>
+                        <!-- end: Pagination -->
+
                     </div>
                 </div>
             </div>

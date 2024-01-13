@@ -132,7 +132,7 @@
                                                         {% if case.guaranteed_gain == True %}
                                                             <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="color: #4cae4c; font-size: 1.2em">{{ case.guaranteed_gain_percent|farsi_number }}</span></p>
                                                         {% else %}
-                                                            <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="font-size: 1em">{% trans 'do not have' %}</span></p>
+                                                            <p class="product-title">{% trans 'Guaranteed gain percent' %}: <span style="font-size: 1.2em">{% trans 'do not have' %}</span></p>
                                                         {% endif %}
 
                                                         <div class="product-info-bottom" style="margin-bottom: 1em">
@@ -156,7 +156,6 @@
                             <!-- End: Case list -->
 
                             <!-- Pagination -->
-
                             <div class="pagination-wrap">
                                 <ul class="pagination" style="direction: rtl">
                                     {% if page_obj.has_previous %}
@@ -192,14 +191,15 @@
         </div>
         <!-- Main Content Wrapper Start -->
 
+
+
         <!-- Blog Area Start -->
         <section class="blog-area mb--70 mb-md--50">
             <div class="container">
                 <div class="row mb--35 mb-md--23">
-                    <div class="col-12 text-center">
-                        <h2>ویـرایش خبـر</h2>
+                    <div class="row align-items-center">
+                        <h3 style="font-weight: 600; font-size: 1.6em; text-align: center; margin-bottom: 1.5em; margin-top: 1.5em">{% trans 'Newest Articles' %}</h3>
                     </div>
-                </div>
                 <div class="row">
                     <div class="col-12">
                         <div class="element-carousel" data-slick-options='{
@@ -211,57 +211,34 @@
                                 {"breakpoint": 992, "settings": {"slidesToShow": 2}},
                                 {"breakpoint": 768, "settings": {"slidesToShow": 1}}
                             ]'>
-                            <div class="item">
-                                <article class="blog">
-                                    <div class="blog__inner">
-                                        <div class="blog__media">
-                                            <figure class="image">
-                                                <img src="files/img/blog/blog-01.jpg" alt="Blog" class="w-100">
-                                                <a href="blog-details-image.html" class="item-overlay"></a>
-                                            </figure>
+
+                            {% for blog in blogs %}
+                                <div class="item">
+                                    <article class="blog">
+                                        <div class="blog__inner">
+                                            <div class="blog__media">
+                                                <figure class="image">
+                                                    <img src="{{ blog.cover.url }}" alt="Blog" class="w-100">
+                                                    <a href="{{ blog.get_absolute_url}}" class="item-overlay"></a>
+                                                </figure>
+                                            </div>
+                                            <div class="blog__info">
+                                                <h2 class="blog__title"><a href="{{ blog.get_absolute_url}}">{{ blog.title|farsi_number }}</a></h2>
+                                            </div>
                                         </div>
-                                        <div class="blog__info">
-                                            <h2 class="blog__title"><a href="blog-details-image.html">انواع مختلفی از معابر لرم وجود دارد.</a></h2>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="item">
-                                <article class="blog">
-                                    <div class="blog__inner">
-                                        <div class="blog__media">
-                                            <figure class="image">
-                                                <img src="files/img/blog/blog-02.jpg" alt="Blog" class="w-100">
-                                                <a href="blog-details-image.html" class="item-overlay"></a>
-                                            </figure>
-                                        </div>
-                                        <div class="blog__info">
-                                            <h2 class="blog__title"><a href="blog-details-image.html">انواع مختلفی از معابر لرم وجود دارد.</a></h2>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="item">
-                                <article class="blog">
-                                    <div class="blog__inner">
-                                        <div class="blog__media">
-                                            <figure class="image">
-                                                <img src="files/img/blog/blog-03.jpg" alt="Blog" class="w-100">
-                                                <a href="blog-details-image.html" class="item-overlay"></a>
-                                            </figure>
-                                        </div>
-                                        <div class="blog__info">
-                                            <h2 class="blog__title"><a href="blog-details-image.html">انواع مختلفی از معابر لرم وجود دارد.</a></h2>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
+                                    </article>
+                                </div>
+                            {% endfor %}
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Blog Area End -->
+
+
     </main>
 
 {% endblock %}

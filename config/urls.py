@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('cases.urls')),
     path('blog/', include('blogs.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
