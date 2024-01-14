@@ -44,8 +44,8 @@
                                                     <span class="posted-on">{% trans 'Group' %}: {{ post.blog_category }}</span>
                                                 </div>
                                                 <div class="blog__meta">
-                                                    <span class="posted-on">{{ post.date_time_creation }} | </span>
-                                                    <span class="posted-by"><span>{% trans 'Writer' %}:</span>{{ post.author }}</span>
+                                                    <span class="posted-on">{{ post.date_time_creation }}</span>
+                                                    <span class="posted-by"><span> | {% trans 'Writer' %}:</span>{{ post.author }}</span>
                                                 </div>
                                                 <div class="blog__desc"></div>
                                                 <a href="{{ post.get_absolute_url }}" class="read-more-btn">{% trans 'More' %}</a>
