@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
+    'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+
     'ckeditor',
     'ckeditor_uploader',
     'jalali_date',
@@ -48,6 +52,15 @@ INSTALLED_APPS = [
     'cases',
     'jalali',
 ]
+# allauth
+# SITE_ID = 1
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# ]
+# ACCOUNT_SESSION_REMEMBER = True
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -58,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # "allauth.account.middleware.AccountMiddleware",
 ]
 
 INTERNAL_IPS = [

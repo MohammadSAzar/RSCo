@@ -136,15 +136,15 @@
                                                     </a>
                                                     <ul class="sub-menu">
                                                         <li class="menu-item-has-children">
-                                                            <a href="#">
+                                                            <a href="{% url 'signup' %}">
                                                                 <span class="mm-text">{% trans 'Sign-Up' %}</span>
                                                             </a>
                                                         </li>
                                                         <li class="menu-item-has-children">
-                                                            <a href=""><span class="mm-text">{% trans 'Login' %}</span></a>
+                                                            <a href="{% url 'login' %}"><span class="mm-text">{% trans 'Login' %}</span></a>
                                                         </li>
                                                         <li class="menu-item-has-children">
-                                                            <a href=""><span class="mm-text">{% trans 'Panel' %}</span></a>
+                                                            <a href="{% url 'logout' %}"><span class="mm-text">{% trans 'Logout' %}</span></a>
                                                         </li>
                                                     </ul>
                                                 </li>
