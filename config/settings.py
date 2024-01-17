@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
-    'allauth',
+    # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
 
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 # SITE_ID = 1
 # AUTHENTICATION_BACKENDS = [
 #     'django.contrib.auth.backends.ModelBackend',
-#     'allauth.account.auth_backends.AuthenticationBackend',
+#     # 'allauth.account.auth_backends.AuthenticationBackend',
 # ]
 # ACCOUNT_SESSION_REMEMBER = True
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

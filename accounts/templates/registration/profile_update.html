@@ -1,0 +1,145 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load farsi_numbers_tags %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans 'Profile Update' %}{% endblock %}
+
+{% block content %}
+    <!-- Profile banner -->
+    <section class="page-title-area bg-image ptb--80" data-bg-image="files/img/bg/page_title_bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">{% trans 'Profile' %}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end: Profile banner -->
+
+    <!-- Profile -->
+    <div class="main-content-wrapper">
+        <div class="page-content-inner ptb--80 ptb-md--60 pb-sm--55">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="user-dashboard-tab flex-column flex-md-row">
+                            <div class="user-dashboard-tab__head nav flex-md-column" role="tablist" aria-orientation="vertical">
+                                <button type="button" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#dashboard" aria-controls="dashboard" aria-selected="true">داشبورد</button>
+                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#orders" aria-controls="orders" aria-selected="true">سفارشات</button>
+                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#downloads" aria-controls="downloads" aria-selected="true">دانلودها</button>
+                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#addresses" aria-controls="addresses" aria-selected="true">آدرس ها</button>
+                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#accountdetails" aria-controls="accountdetails" aria-selected="true">جزئیات حساب</button>
+                                <a type="button" class="nav-link" href="login-register.html">خروج</a>
+                            </div>
+                            <div class="user-dashboard-tab__content tab-content">
+
+                                <div class="tab-pane fade" id="accountdetails">
+
+                                     <form action="" method="post">
+                                        {% csrf_token %}
+                                        {{ u_form.as_p }}
+                                        <button class="login_button" type="submit">ارسال</button>
+                                    </form>
+                                    <form action="" method="post">
+                                        {% csrf_token %}
+                                        {{ p_form.as_p }}
+                                        <button class="login_button" type="submit">ارسال</button>
+                                    </form>
+
+                                    <form action="#" class="form form--account">
+                                        <div class="row mb--20">
+                                            <div class="col-md-6 mb-sm--20">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="f_name">نام کوچک <span class="required">*</span></label>
+                                                    <input type="text" name="f_name" id="f_name" class="form__input">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="l_name">نام خانوادگی <span class="required">*</span></label>
+                                                    <input type="text" name="l_name" id="l_name" class="form__input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb--20">
+                                            <div class="col-12">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="d_name">نام نمایشی <span class="required">*</span></label>
+                                                    <input type="text" name="d_name" id="d_name" class="form__input">
+                                                    <span class="form__notes"><em>به این ترتیب نام شما در بخش حساب و در بررسی ها نمایش داده می شود</em></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb--20">
+                                            <div class="col-12">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="email">آدرس ایمیل<span class="required">*</span></label>
+                                                    <input type="email" name="email" id="email" class="form__input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <fieldset class="form__fieldset mb--20">
+                                            <legend class="form__legend">تغییر رمز عبور</legend>
+                                            <div class="row mb--20">
+                                                <div class="col-12">
+                                                    <div class="form__group">
+                                                        <label class="form__label" for="cur_pass">رمز عبور فعلی (خالی بگذارید تا بدون تغییر باقی بماند)</label>
+                                                        <input type="password" name="cur_pass" id="cur_pass" class="form__input">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb--20">
+                                                <div class="col-12">
+                                                    <div class="form__group">
+                                                        <label class="form__label" for="new_pass">رمز عبور جدید (خالی بگذارید تا بدون تغییر باقی بماند)</label>
+                                                        <input type="password" name="new_pass" id="new_pass" class="form__input">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form__group">
+                                                        <label class="form__label" for="conf_new_pass">رمز عبور جدید را تایید کنید</label>
+                                                        <input type="password" name="conf_new_pass" id="conf_new_pass" class="form__input">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form__group">
+                                                    <input type="submit" value="ذخیره تغییرات" class="btn btn-size-md">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: Profile -->
+
+{#    <div class="authentication_main">#}
+{#        <form action="" method="post">#}
+{#            {% csrf_token %}#}
+{#            {{ u_form.as_p }}#}
+{#            <button class="login_button" type="submit">ارسال</button>#}
+{#        </form>#}
+{#    </div>#}
+{#    <div class="authentication_main">#}
+{#        <form action="" method="post">#}
+{#            {% csrf_token %}#}
+{#            {{ p_form.as_p }}#}
+{#            <button class="login_button" type="submit">ارسال</button>#}
+{#        </form>#}
+{#    </div>#}
+{% endblock %}
+
