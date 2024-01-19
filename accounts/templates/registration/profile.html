@@ -29,7 +29,10 @@
                         <div class="user-dashboard-tab flex-column flex-md-row">
                             <div class="user-dashboard-tab__head nav flex-md-column" role="tablist" aria-orientation="vertical">
                                 <button type="button" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#dashboard" aria-controls="dashboard" aria-selected="true">داشبورد</button>
-                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#accountdetails" aria-controls="accountdetails" aria-selected="true">جزئیات حساب</button>
+                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#personal-information" aria-controls="personal-information" aria-selected="true">{% trans 'Personal Information' %}</button>
+                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#contact-information" aria-controls="contact-information" aria-selected="true">{% trans 'Contact Information' %}</button>
+                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#auth-information" aria-controls="auth-information" aria-selected="true">{% trans 'Authentication Documents' %}</button>
+                                <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#password-management" aria-controls="password-management" aria-selected="true">{% trans 'Password Management' %}</button>
                                 <a type="button" class="nav-link" href="login-register.html">خروج</a>
                             </div>
                             <div class="user-dashboard-tab__content tab-content">
@@ -41,44 +44,162 @@
                                 </div>
                                 <!-- end: Dashboard -->
 
-                                <!-- Profile update -->
-                                <div class="tab-pane fade" id="accountdetails">
+                                <!-- Personal Information -->
+                                <div class="tab-pane fade" id="personal-information">
+
                                     <form action="" method="post" class="form form--account">
                                         {% csrf_token %}
-                                        {{ u_form.as_p }}
-                                        <button class="login_button" type="submit">ارسال</button>
-
                                         <div class="row mb--20">
                                             <div class="col-md-6 mb-sm--20">
                                                 <div class="form__group">
-                                                    <label class="form__label" for="f_name">نام کوچک <span class="required">*</span></label>
-                                                    <input type="text" name="f_name" id="f_name" class="form__input">
+                                                    <label class="form__label" for="{{ u_form.first_name.id_for_label }}">نام</label>
+                                                    {% render_field u_form.first_name class="form__input" %}
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form__group">
-                                                    <label class="form__label" for="l_name">نام خانوادگی <span class="required">*</span></label>
-                                                    <input type="text" name="l_name" id="l_name" class="form__input">
+                                                    <label class="form__label" for="{{ u_form.last_name.id_for_label }}">نام خانوادگی</label>
+                                                    {% render_field u_form.last_name class="form__input" %}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mb--20">
                                             <div class="col-12">
                                                 <div class="form__group">
-                                                    <label class="form__label" for="d_name">نام نمایشی <span class="required">*</span></label>
-                                                    <input type="text" name="d_name" id="d_name" class="form__input">
-                                                    <span class="form__notes"><em>به این ترتیب نام شما در بخش حساب و در بررسی ها نمایش داده می شود</em></span>
+                                                    <label class="form__label" for="{{ u_form.last_name.id_for_label }}">نام کاربری</label>
+                                                    {% render_field u_form.last_name class="form__input" %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb--20">
+                                            <div class="col-md-6 mb-sm--20">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.sex.id_for_label }}">جنسیت</label>
+                                                    {% render_field p_form.sex class="form__input" %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.birthday.id_for_label }}">تاریخ تولد</label>
+                                                    {% render_field p_form.birthday class="form__input" %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-size-md" type="submit" style="margin-top: 1.2em; float: left;">ذخیره تغییرات</button>
+                                    </form>
+
+                                </div>
+                                <!-- end: Personal Information -->
+
+                                <!-- Contact Information -->
+                                <div class="tab-pane fade" id="contact-information">
+
+                                    <form action="" method="post" class="form form--account">
+                                        {% csrf_token %}
+                                        <div class="row mb--20">
+                                            <div class="col-md-6 mb-sm--20">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.mobile_phone.id_for_label }}">شماره همراه</label>
+                                                    {% render_field p_form.mobile_phone class="form__input" %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.home_phone.id_for_label }}">شماره ثابت</label>
+                                                    {% render_field p_form.home_phone class="form__input" %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.pre_home_phone.id_for_label }}">کد شهر</label>
+                                                    {% render_field p_form.pre_home_phone class="form__input" %}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mb--20">
                                             <div class="col-12">
                                                 <div class="form__group">
-                                                    <label class="form__label" for="email">آدرس ایمیل<span class="required">*</span></label>
-                                                    <input type="email" name="email" id="email" class="form__input">
+                                                    <label class="form__label" for="{{ u_form.email.id_for_label }}">آدرس ایمیل</label>
+                                                    {% render_field u_form.email class="form__input" %}
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row mb--20">
+                                            <div class="col-md-3 mb-sm--20">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.country.id_for_label }}">کشور</label>
+                                                    {% render_field p_form.country class="form__input" %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.province.id_for_label }}">استان</label>
+                                                    {% render_field p_form.province class="form__input" %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.city.id_for_label }}">شهر</label>
+                                                    {% render_field p_form.city class="form__input" %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.postal_code.id_for_label }}">کد پستی</label>
+                                                    {% render_field p_form.postal_code class="form__input" %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb--20">
+                                            <div class="col-12">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.address.id_for_label }}">نشانی</label>
+                                                    {% render_field p_form.address class="form__input" %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-size-md" type="submit" style="margin-top: 1.2em; float: left;">ذخیره تغییرات</button>
+                                    </form>
+
+                                </div>
+                                <!-- end: Contact Information -->
+
+                                <!-- Authentication Documents -->
+                                <div class="tab-pane fade" id="auth-information">
+
+                                    <form action="" method="post" class="form form--account">
+                                        {% csrf_token %}
+                                        <div class="row mb--20">
+                                            <div class="col-md-4 mb-sm--20">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.national_card.id_for_label }}">تصویر کارت ملی</label>
+                                                    {% render_field p_form.national_card class="form__input" %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.bank_card.id_for_label }}">تصویر کارت بانکی</label>
+                                                    {% render_field p_form.bank_card class="form__input" %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form__group">
+                                                    <label class="form__label" for="{{ p_form.auth_picture.id_for_label }}">تصویر احراز هویت</label>
+                                                    {% render_field p_form.auth_picture class="form__input" %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-size-md" type="submit" style="margin-top: 1.2em; float: left;">ذخیره تغییرات</button>
+                                    </form>
+
+                                </div>
+                                <!-- end: Authentication Documents -->
+
+                                <!-- Password Management -->
+                                <div class="tab-pane fade" id="password-management">
+
+                                    <form action="" method="post" class="form form--account">
+
                                         <fieldset class="form__fieldset mb--20">
                                             <legend class="form__legend">تغییر رمز عبور</legend>
                                             <div class="row mb--20">
@@ -115,13 +236,9 @@
                                         </div>
 
                                     </form>
-                                    <form action="" method="post" class="form form--account">
-                                        {% csrf_token %}
-                                        {{ p_form.as_p }}
-                                        <button class="login_button" type="submit">ارسال</button>
-                                    </form>
+
                                 </div>
-                                <!-- end: Profile update -->
+                                <!-- end: Password Management -->
 
                             </div>
                         </div>

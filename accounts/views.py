@@ -7,6 +7,7 @@ from django.views.generic import CreateView
 from .models import CustomUser
 from .forms import CaseCustomerSignUpForm, ServiceCustomerSignUpForm, ProfileUpdateForm, CustomUserChangeForm
 
+
 def select_user_type_signup_view(request):
     return render(request, 'registration/signup_select.html')
 
@@ -25,6 +26,7 @@ class CaseCustomerSignupView(CreateView):
         login(self.request, user)
         return redirect('case_list')
 
+
 class ServiceCustomerSignupView(CreateView):
     model = CustomUser
     form_class = ServiceCustomerSignUpForm
@@ -38,6 +40,7 @@ class ServiceCustomerSignupView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('case_list')
+
 
 @login_required
 def profile_view(request):
@@ -65,4 +68,3 @@ def profile_view(request):
 
 # def profile_view(request):
 #     return render(request, 'registration/profile.html')
-
