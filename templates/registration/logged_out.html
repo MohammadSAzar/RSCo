@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load farsi_numbers_tags %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans 'Logount Success' %}{% endblock %}
+
+{% block content %}
+    <!-- Logged Out banner -->
+    <section class="page-title-area bg-image ptb--80" data-bg-image="files/img/bg/page_title_bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">موفقیت در خروج از حساب کاربری</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end: Logged Out banner -->
+
+    <!-- Logged Out -->
+    <div class="main-content-wrapper">
+        <div class="page-content-inner ptb--80 ptb-md--60 pb-sm--55">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tab-pane" style="text-align: center">
+                            <div><span style="width: 100%; text-align: center">شما با موفقیت از حساب کاربری خود خارج شدید، برای ادامه بهتر است روی یکی از لینک های زیر کلیک کنید:</span></div>
+                            <a href="{% url 'login' %}"><button class="btn btn-size-md" type="submit" style="margin-top: 1.2em;">رفتن به صفحه ورود</button></a>
+                            <a href="{% url 'case_list' %}"><button class="btn btn-size-md" type="submit" style="margin-top: 1.2em;">رفتن به صفحه اصلی</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: Logged Out -->
+{% endblock %}
+

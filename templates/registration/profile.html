@@ -33,7 +33,7 @@
                                 <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#contact-information" aria-controls="contact-information" aria-selected="true">{% trans 'Contact Information' %}</button>
                                 <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#auth-information" aria-controls="auth-information" aria-selected="true">{% trans 'Authentication Documents' %}</button>
                                 <button type="button" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#password-management" aria-controls="password-management" aria-selected="true">{% trans 'Password Management' %}</button>
-                                <a type="button" class="nav-link" href="login-register.html">خروج</a>
+                                <a type="button" class="nav-link" href="{% url 'logout' %}">خروج</a>
                             </div>
                             <div class="user-dashboard-tab__content tab-content">
 
@@ -196,47 +196,9 @@
                                 <!-- end: Authentication Documents -->
 
                                 <!-- Password Management -->
-                                <div class="tab-pane fade" id="password-management">
-
-                                    <form action="" method="post" class="form form--account">
-
-                                        <fieldset class="form__fieldset mb--20">
-                                            <legend class="form__legend">تغییر رمز عبور</legend>
-                                            <div class="row mb--20">
-                                                <div class="col-12">
-                                                    <div class="form__group">
-                                                        <label class="form__label" for="cur_pass">رمز عبور فعلی (خالی بگذارید تا بدون تغییر باقی بماند)</label>
-                                                        <input type="password" name="cur_pass" id="cur_pass" class="form__input">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb--20">
-                                                <div class="col-12">
-                                                    <div class="form__group">
-                                                        <label class="form__label" for="new_pass">رمز عبور جدید (خالی بگذارید تا بدون تغییر باقی بماند)</label>
-                                                        <input type="password" name="new_pass" id="new_pass" class="form__input">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="form__group">
-                                                        <label class="form__label" for="conf_new_pass">رمز عبور جدید را تایید کنید</label>
-                                                        <input type="password" name="conf_new_pass" id="conf_new_pass" class="form__input">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form__group">
-                                                    <input type="submit" value="ذخیره تغییرات" class="btn btn-size-md">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </form>
-
+                                <div class="tab-pane fade" id="password-management" style="text-align: center">
+                                    <div><span style="width: 100%; text-align: center">برای تغییر رمز خود، روی دکمه زیر کلیک کنید:</span></div>
+                                    <a href="{% url 'password_change' %}"><button class="btn btn-size-md" type="submit" style="margin-top: 1.2em;">تغییر رمز</button></a>
                                 </div>
                                 <!-- end: Password Management -->
 
@@ -249,4 +211,5 @@
     </div>
     <!-- end: Profile -->
 {% endblock %}
+
 

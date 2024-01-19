@@ -66,5 +66,4 @@ def profile_view(request):
 
     return render(request, 'registration/profile.html', context)
 
-# def profile_view(request):
-#     return render(request, 'registration/profile.html')
+

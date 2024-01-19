@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans 'Login' %}{% endblock %}
+
+{% block content %}
+    <div class="authentication_main">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+{#            <label class="form_label" for="{{ form.username.id_for_label }}">نام کاربری:</label>#}
+{#            {% render_field form.username class="form_box_label" placeholder="نام کاربری خود را وارد کنید" %}#}
+            <button class="login_button" type="submit">ارسال</button>
+        </form>
+        <p>اگر حساب کاربری دارید، از <a href="{% url 'login' %}" style="text-decoration: none; color: blue; font-size: 1.2em">اینجا</a> وارد شوید.</p>
+    </div>
+{% endblock %}
+
