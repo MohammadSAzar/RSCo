@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 19:28+0330\n"
+"POT-Creation-Date: 2024-01-20 11:01+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,54 +18,96 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\_base.html:75 .\_base.html:333
+#: .\_base.html:75 .\_base.html:339
 msgid "Homepage"
 msgstr "خانه"
 
-#: .\_base.html:80 .\_base.html:336
+#: .\_base.html:80 .\_base.html:342
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: .\_base.html:85 .\_base.html:339
+#: .\_base.html:85 .\_base.html:345
 msgid "Services"
 msgstr "خدمات"
 
-#: .\_base.html:103 .\_base.html:353
+#: .\_base.html:103 .\_base.html:359
 msgid "Blog"
 msgstr "بلاگ"
 
-#: .\_base.html:108 .\_base.html:356
+#: .\_base.html:108 .\_base.html:362
 msgid "Important Data"
 msgstr "اطلاعات"
 
-#: .\_base.html:113 .\_base.html:359
+#: .\_base.html:113 .\_base.html:365
 msgid "Contact Us"
 msgstr "تماس با ما"
 
-#: .\_base.html:118 .\_base.html:362
+#: .\_base.html:118 .\_base.html:368
 msgid "About Us"
 msgstr "درباره ما"
 
-#: .\_base.html:123 .\_base.html:365
+#: .\_base.html:123 .\_base.html:371
 msgid "Rules"
 msgstr "قوانین"
 
-#: .\_base.html:128 .\_base.html:368
+#: .\_base.html:128 .\_base.html:374
 msgid "FAQ"
 msgstr "سوالات متداول"
 
-#: .\_base.html:135 .\_base.html:373
+#: .\_base.html:135 .\_base.html:379
 msgid "Account"
 msgstr "حساب کاربری"
 
-#: .\_base.html:140 .\_base.html:376
+#: .\_base.html:140 .\registration\profile.html:8
+msgid "Profile"
+msgstr "پنل کاربری"
+
+#: .\_base.html:143
+msgid "Logout"
+msgstr "خروج"
+
+#: .\_base.html:148 .\_base.html:382
 msgid "Sign-Up"
 msgstr "ثبت نام"
 
-#: .\_base.html:144 .\_base.html:379
+#: .\_base.html:152 .\_base.html:385 .\registration\login.html:7
 msgid "Login"
 msgstr "ورود"
 
-#: .\_base.html:147 .\_base.html:382
+#: .\_base.html:388
 msgid "Panel"
 msgstr "پنل کاربری"
+
+#: .\registration\logged_out.html:8
+msgid "Logount Success"
+msgstr "خروج موفق"
+
+#: .\registration\password_change_done.html:8
+msgid "Password Success"
+msgstr "تغییر رمز موفق"
+
+#: .\registration\password_change_form.html:8
+msgid "Password Change"
+msgstr "تغییر رمز ورود"
+
+#: .\registration\profile.html:32
+msgid "Personal Information"
+msgstr "اطلاعات شخصی"
+
+#: .\registration\profile.html:33
+msgid "Contact Information"
+msgstr "اطلاعات تماس"
+
+#: .\registration\profile.html:34
+msgid "Authentication Documents"
+msgstr "مدارک هویتی"
+
+#: .\registration\profile.html:35
+msgid "Password Management"
+msgstr "مدیریت رمز"
+
+#: .\registration\signup_select.html:7
+#, fuzzy
+#| msgid "Sign-Up"
+msgid "Signup"
+msgstr "ثبت نام"

@@ -135,23 +135,23 @@
                                                         <span class="mm-text">{% trans 'Account' %}</span>
                                                     </a>
                                                     <ul class="sub-menu">
-{#                                                        <li class="menu-item-has-children">#}
-{#                                                            <img#}
-{#                                                              class="rounded-circle account-img"#}
-{#                                                              src="{{ user.avatar.url }}"#}
-{#                                                            />#}
-{#                                                        </li>#}
-                                                        <li class="menu-item-has-children">
-                                                            <a href="{% url 'signup' %}">
-                                                                <span class="mm-text">{% trans 'Sign-Up' %}</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item-has-children">
-                                                            <a href="{% url 'login' %}"><span class="mm-text">{% trans 'Login' %}</span></a>
-                                                        </li>
-                                                        <li class="menu-item-has-children">
-                                                            <a href="{% url 'logout' %}"><span class="mm-text">{% trans 'Logout' %}</span></a>
-                                                        </li>
+                                                        {% if user.is_authenticated %}
+                                                            <li class="menu-item-has-children">
+                                                            <a href="{% url 'profile' %}"><span class="mm-text">{% trans 'Profile' %}</span></a>
+                                                            </li>
+                                                            <li class="menu-item-has-children">
+                                                                <a href="{% url 'logout' %}"><span class="mm-text">{% trans 'Logout' %}</span></a>
+                                                            </li>
+                                                        {% else %}
+                                                            <li class="menu-item-has-children">
+                                                                <a href="{% url 'signup' %}">
+                                                                    <span class="mm-text">{% trans 'Sign-Up' %}</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="menu-item-has-children">
+                                                                <a href="{% url 'login' %}"><span class="mm-text">{% trans 'Login' %}</span></a>
+                                                            </li>
+                                                        {% endif %}
                                                     </ul>
                                                 </li>
                                             </ul>
